@@ -1,0 +1,8 @@
+.room {
+  width: 100%;
+  height: 200px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  scroll-snap-align: start;
+  scroll-margin-top: 20px;
+}

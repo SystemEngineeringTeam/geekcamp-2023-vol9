@@ -1,0 +1,10 @@
+.congestion {
+  height: 100%;
+  padding: 10px;
+  display: grid;
+  background-color: var(--on-primary);
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 10px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}

@@ -1,0 +1,75 @@
+.builds {
+  height: 100%;
+  width: 100%;
+  padding: 0 100vw 10px 100px;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  background-color: var(--on-primary);
+  background-image: linear-gradient(
+    0deg,
+    transparent 10px,
+    var(--primary) 10px
+  );
+
+  .build {
+    height: 100%;
+    display: flex;
+
+    .image_container {
+      width: 500px;
+      height: 100%;
+      position: relative;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+
+    .selecter {
+      margin: 0 50px 0 10px;
+      padding-left: 10px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: end;
+
+      .area {
+        height: 50px;
+        width: max-content;
+        color: var(--on-primary);
+        border-bottom: solid 2px;
+        display: inline-block;
+
+        .area_name {
+          margin: 0 10px 0 5px;
+          font-size: 3rem;
+          display: inline-block;
+        }
+
+        .room {
+          margin: 0 5px;
+          padding: 0 5px;
+          font-size: 2rem;
+          border-radius: 5px;
+          color: var(--primary);
+          background-color: var(--on-primary);
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    scroll-snap-align: start;
+    @media (max-width: 1000px) {
+      scroll-snap-align: initial;
+
+      .image_container,
+      .selecter {
+        scroll-snap-align: start;
+      }
+    }
+  }
+}
