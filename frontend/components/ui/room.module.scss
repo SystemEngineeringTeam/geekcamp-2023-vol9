@@ -6,18 +6,47 @@
   background-color: var(--primary);
   border: solid 2px var(--primary);
   border-radius: 10px;
+  position: relative;
   scroll-snap-align: start;
   scroll-margin-top: 20px;
   transition: all 0.3s;
 
+  .room_name {
+    font-size: 2.5rem;
+  }
+
+  .star {
+    font-size: 3rem;
+    color: var(--tertiary);
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .staycount {
+    font-size: 2rem;
+
+    .count {
+      font-weight: bold;  
+    }
+  }
+
+  &:hover {
+    background-color: var(--on-secondary);
+    color: var(--secondary);
+    border: solid 2px var(--secondary);
+  }
+
+  &[data-star="true"] {
+    background-color: var(--on-tertiary);
+    color: var(--tertiary);
+    border: solid 2px var(--tertiary);
+  }
+
   &[data-select="true"] {
     background-color: var(--on-primary);
     color: var(--primary);
-  }
-  
-  &:hover {
-    background-color: var(--on-primary);
-    color: var(--secondary);
-    border: solid 2px var(--secondary);
+    border: solid 2px var(--primary);
   }
 }

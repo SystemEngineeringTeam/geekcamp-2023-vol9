@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { stayCountsState } from "../recoil/state";
+import { getBottomSpace, getGap } from "../util/util";
 
 export default function Builds() {
   const [stayCounts, setStayCounts] = useRecoilState(stayCountsState);
@@ -27,9 +28,16 @@ export default function Builds() {
             }}
           ></div>
 
-          <div className={styles.selecter}>
+          <div
+            className={styles.selecter}
+            style={{ paddingBottom: `${getBottomSpace(key)}px` }}
+          >
             {stayCounts[key].areas.map((area) => (
-              <div className={styles.area} key={area.name}>
+              <div
+                className={styles.area}
+                style={{ marginTop: `${getGap(key)}px` }}
+                key={area.name}
+              >
                 <h2 className={styles.area_name}>{area.name}</h2>
 
                 {area.rooms.map((room) => (

@@ -34,7 +34,11 @@ export default function CongestionComponent() {
             return (
               <Room
                 key={room.name}
-                roomId={roomIdSnap}
+                id={roomIdSnap}
+                name={room.name}
+                staycount={room.staycount}
+                building={stayCounts[key].name}
+                area={area.name}
                 isSelect={roomId === roomIdSnap}
               />
             );
