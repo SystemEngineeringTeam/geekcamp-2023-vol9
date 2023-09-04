@@ -1,13 +1,23 @@
-export type Area = {
-  name: string;
-  rooms: string[];
+export type Error = {
+  type: "error";
+  message: string;
 };
 
-export type Build = {
-  id: string;
-  name: string;
-  image: string;
-  areas: Area[];
-  gap: number;
-  bottomSpace: number;
+export type StayCounts = {
+  [key in string]: {
+    name: string;
+    areas: {
+      name: string;
+      rooms: { name: string; staycount: number }[];
+    }[];
+  };
 };
+
+export type StayCountsResponse = {
+  type: "succeeded";
+  content: {
+    staycounts: StayCounts;
+  };
+};
+
+export type Response = StayCounts | Error;

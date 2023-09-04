@@ -1,78 +1,68 @@
-import { Area, Build } from "@/types";
+import { StayCountsResponse } from "@/types";
 
-const build1Areas: Area[] = [
-  {
-    name: "1F",
-    rooms: ["101", "102", "103", "104", "アメリカフェ"],
+export const stayCountsResponse: StayCountsResponse = {
+  type: "succeeded",
+  content: {
+    staycounts: {
+      bldg1: {
+        name: "1号館",
+        areas: [
+          {
+            name: "1F",
+            rooms: [
+              { name: "101", staycount: 10 },
+              { name: "102", staycount: 13 },
+            ],
+          },
+          {
+            name: "2F",
+            rooms: [
+              { name: "201", staycount: 10 },
+              { name: "202", staycount: 13 },
+            ],
+          },
+          {
+            name: "3F",
+            rooms: [
+              { name: "301", staycount: 10 },
+              { name: "302", staycount: 13 },
+            ],
+          },
+          {
+            name: "4F",
+            rooms: [
+              { name: "401", staycount: 10 },
+              { name: "402", staycount: 13 },
+            ],
+          },
+          {
+            name: "5F",
+            rooms: [
+              { name: "501", staycount: 10 },
+              { name: "502", staycount: 13 },
+            ],
+          },
+          {
+            name: "6F",
+            rooms: [
+              { name: "601", staycount: 10 },
+              { name: "602", staycount: 13 },
+            ],
+          },
+        ],
+      },
+      bldg10: {
+        name: "10号館",
+        areas: [
+          {
+            name: "1F",
+            rooms: [
+              { name: "玉森研", staycount: 10 },
+              { name: "xx研", staycount: 13 },
+            ],
+          },
+        ],
+      },
+    },
   },
-  {
-    name: "2F",
-    rooms: ["201", "202", "203", "204"],
-  },
-  {
-    name: "3F",
-    rooms: ["301", "302", "303", "304"],
-  },
-  {
-    name: "4F",
-    rooms: ["401", "402", "403", "404"],
-  },
-  {
-    name: "5F",
-    rooms: ["501", "502", "503", "504"],
-  },
-  {
-    name: "6F",
-    rooms: ["601", "602", "603", "604"],
-  },
-  {
-    name: "7F",
-    rooms: ["701", "702", "703", "704"],
-  },
-];
-
-const build10Areas: Area[] = [
-  {
-    name: "1F",
-    rooms: ["101", "102", "103", "104"],
-  },
-  {
-    name: "2F",
-    rooms: ["201", "202", "203", "204"],
-  },
-  {
-    name: "3F",
-    rooms: ["301", "302", "303", "304"],
-  },
-  {
-    name: "4F",
-    rooms: ["401", "402", "403", "404"],
-  },
-  {
-    name: "5F",
-    rooms: ["501", "502", "503", "504"],
-  },
-  {
-    name: "6F",
-    rooms: ["601", "602", "603", "604"],
-  },
-];
-
-export const builds: Build[] = [
-  {
-    id: "build-1",
-    name: "1号館",
-    image: "/images/build-1.png",
-    areas: build1Areas,
-    gap: 6.5,
-    bottomSpace: 0,
-  },
-  {
-    id: "build-10",
-    name: "10号館",
-    image: "/images/build-10.png",
-    areas: build10Areas,
-    gap: 17,
-    bottomSpace: 15,
-  },
-];
+};
