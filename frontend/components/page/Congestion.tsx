@@ -2,13 +2,25 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "@/styles/Congestion.module.scss";
 import Room from "@/components/ui/room";
-import { useRecoilValue } from "recoil";
-import { staycountsState } from "../recoil/state";
+import { useStaycount } from "@/hooks/useStaycount";
+import { useLocalStorage } from "@mantine/hooks";
 
 export default function CongestionComponent() {
   const [roomId, setRoomId] = useState<undefined | string>(undefined);
-  const staycounts = useRecoilValue(staycountsState);
+  const staycounts = useStaycount();
   const router = useRouter();
+  const [stars, setStars] = useLocalStorage<string[]>({
+    key: "stars",
+    defaultValue: [],
+  });
+
+  function addStar(roomId: string) {
+    setStars((s) => [...s, roomId]);
+  }
+
+  function removeStar(roomId: string) {
+    setStars((s) => s.filter((star) => star !== roomId));
+  }
 
   useEffect(() => {
     if (router.isReady) {
@@ -18,7 +30,6 @@ export default function CongestionComponent() {
 
   useEffect(() => {
     if (roomId) {
-      console.log(roomId);
       document.getElementById(roomId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -29,7 +40,7 @@ export default function CongestionComponent() {
   return (
     <div className={styles.congestion}>
       {staycounts.map((staycount) => (
-        <>
+        <div key={staycount.building}>
           <h2 className={styles.building_name}>{staycount.building}</h2>
 
           <div className={styles.building} key={staycount.building}>
@@ -43,12 +54,15 @@ export default function CongestionComponent() {
                     building={staycount.building}
                     staycount={room.staycount}
                     isSelect={roomId === room.id.toString()}
+                    isStar={stars.includes(room.id.toString())}
+                    addStar={addStar}
+                    removeStar={removeStar}
                   />
                 );
               })
             )}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
