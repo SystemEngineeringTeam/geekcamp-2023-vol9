@@ -1,23 +1,72 @@
+// エラーの型
 export type Error = {
-  type: "error";
   message: string;
 };
 
-export type StayCounts = {
-  [key in string]: {
-    name: string;
-    areas: {
+// 滞在者数の型
+export type Staycount = {
+  building: string;
+  floors: {
+    floor: number;
+    rooms: {
+      id: number;
       name: string;
-      rooms: { name: string; staycount: number }[];
+      staycount: number;
     }[];
+  }[];
+};
+
+// 混雑度の型
+export type Congestion = {
+  building: string;
+  floors: {
+    floor: number;
+    rooms: {
+      id: number;
+      name: string;
+      congestion: number;
+    }[];
+  }[];
+};
+
+// 履歴の型
+export type Histories = {
+  histories: {
+    [key: string]: [
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number,
+      number
+    ];
   };
 };
 
-export type StayCountsResponse = {
-  type: "succeeded";
-  content: {
-    staycounts: StayCounts;
-  };
+// 滞在者数のレスポンスの型
+export type StaycountsResponse = {
+  staycounts: Staycount[];
 };
 
-export type Response = StayCounts | Error;
+// 混雑度のレスポンスの型
+export type CongestionsResponse = {
+  congestions: Congestion[];
+};

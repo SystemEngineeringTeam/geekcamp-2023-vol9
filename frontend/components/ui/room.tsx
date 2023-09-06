@@ -4,11 +4,11 @@ import styles from "./room.module.scss";
 import { useLocalStorage } from "@mantine/hooks";
 
 type Props = {
-  id: string;
+  key: string;
+  id: number;
   name: string;
-  staycount: number;
   building: string;
-  area: string;
+  staycount: number;
   isSelect: boolean;
 };
 
@@ -18,20 +18,21 @@ export default function Room(props: Props) {
     key: "stars",
     defaultValue: [],
   });
+  const roomId = props.id.toString();
 
   useEffect(() => {
-    if (stars.includes(props.id)) setIsStared(true);
+    if (stars.includes(roomId)) setIsStared(true);
     else setIsStared(false);
-  }, [props.id, stars]);
+  }, [roomId, stars]);
 
   useEffect(() => {
-    if (isStared) setStars((s) => [...s, props.id]);
-    else setStars((s) => s.filter((star) => star !== props.id));
-  }, [isStared, props.id, setStars]);
+    if (isStared) setStars((s) => [...s, roomId]);
+    else setStars((s) => s.filter((star) => star !== roomId));
+  }, [isStared, roomId, setStars]);
 
   return (
     <section
-      id={props.id}
+      id={roomId}
       className={styles.room}
       data-select={props.isSelect}
       data-star={isStared}
