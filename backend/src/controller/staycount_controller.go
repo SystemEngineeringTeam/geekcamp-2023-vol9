@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/SystemEngineeringTeam/geekcamp-2023-vol9/model"
 	"github.com/gin-gonic/gin"
@@ -26,12 +27,31 @@ func StayCountPost(c *gin.Context){
 	if err := c.BindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"type": "failed",
-			"message": "Invalid request",
+			"message": "入力されたデータが不正です。",
 			"error": err.Error(),
 		})
 		return
 	}
 
+	println(roomId)
+
+	// room_idをint型に変換
+	roomIdInt, err := strconv.Atoi(roomId)
+	if err == nil {
+		req.RoomId = roomIdInt
+	}else{
+		c.JSON(http.StatusBadRequest, gin.H{
+			"type": "failed",
+			"message": "入力されたroom_idが不正です。",
+			"error": err.Error(),
+		})
+		return
+	}
+
+	// データベースにデータを挿入
+	model.StayCountInsert(req)
+
+	// レスポンスを返す
 	c.JSON(http.StatusOK, gin.H{
 		"type": "succeeded",
 		"room_id": roomId,

@@ -9,17 +9,8 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/06 - 22:45:04 | 400 |     575.792µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:25 | 400 |     242.916µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:28 | 400 |      79.333µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:29 | 400 |      57.625µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:29 | 400 |     105.958µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:29 | 400 |      53.916µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:30 | 400 |      43.209µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:30 | 400 |      57.917µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:31 | 400 |      43.833µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:48 | 400 |      77.208µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:46:54 | 200 |      105.25µs |       127.0.0.1 | GET      "/api/v1/staycount/get/all"
-[GIN] 2023/09/06 - 22:46:58 | 400 |          87µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:47:33 | 400 |     275.417µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/06 - 22:48:12 | 200 |     571.083µs |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 00:16:41 | 200 |   12.480667ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 00:16:49 | 200 |   13.901166ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 00:16:51 | 200 |    9.185416ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 00:16:52 | 200 |    9.614125ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 00:16:53 | 200 |   11.151167ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"

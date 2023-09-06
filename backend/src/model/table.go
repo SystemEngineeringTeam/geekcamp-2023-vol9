@@ -13,4 +13,7 @@ func CreateAllTable(){
     db.AutoMigrate(&Floor{})
     db.AutoMigrate(&Room{})
     db.AutoMigrate(&StayCount{})
+
+    // データベースに建物データを挿入
+    // BuildingDefaultInsert()
 }
