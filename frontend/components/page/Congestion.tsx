@@ -21,28 +21,35 @@ export default function CongestionComponent() {
       console.log(roomId);
       document.getElementById(roomId)?.scrollIntoView({
         behavior: "smooth",
+        block: "center",
       });
     }
   }, [roomId]);
 
   return (
     <div className={styles.congestion}>
-      {staycounts.map((staycount) =>
-        staycount.floors.map((floor) =>
-          floor.rooms.map((room) => {
-            return (
-              <Room
-                key={room.name}
-                id={room.id}
-                name={room.name}
-                building={staycount.building}
-                staycount={room.staycount}
-                isSelect={roomId === room.id.toString()}
-              />
-            );
-          })
-        )
-      )}
+      {staycounts.map((staycount) => (
+        <>
+          <h2 className={styles.building_name}>{staycount.building}</h2>
+
+          <div className={styles.building} key={staycount.building}>
+            {staycount.floors.map((floor) =>
+              floor.rooms.map((room) => {
+                return (
+                  <Room
+                    key={room.name}
+                    id={room.id}
+                    name={room.name}
+                    building={staycount.building}
+                    staycount={room.staycount}
+                    isSelect={roomId === room.id.toString()}
+                  />
+                );
+              })
+            )}
+          </div>
+        </>
+      ))}
     </div>
   );
 }
