@@ -16,7 +16,7 @@ export const staycountsResponse: StaycountsResponse = {
           floor: 1,
           rooms: [
             { id: 100, name: "アメリカフェ", staycount: 13 },
-            { id: 2, name: "102", staycount: 13 },
+            { id: 2, name: "102", staycount: null },
             { id: 1, name: "101", staycount: 10 },
           ],
         },

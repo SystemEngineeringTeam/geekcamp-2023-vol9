@@ -11,7 +11,7 @@ export type Staycount = {
     rooms: {
       id: number;
       name: string;
-      staycount: number;
+      staycount: number | null;
     }[];
   }[];
 };
@@ -24,7 +24,7 @@ export type Congestion = {
     rooms: {
       id: number;
       name: string;
-      congestion: number;
+      congestion: number | null;
     }[];
   }[];
 };

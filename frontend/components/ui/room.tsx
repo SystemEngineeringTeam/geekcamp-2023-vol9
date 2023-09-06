@@ -8,7 +8,7 @@ type Props = {
   id: number;
   name: string;
   building: string;
-  staycount: number;
+  staycount: number | null;
   isSelect: boolean;
 };
 
@@ -44,8 +44,11 @@ export default function Room(props: Props) {
 
       <p className={styles.staycount}>
         <span>{"滞在者数: "}</span>
-        <span className={styles.count}>{props.staycount}</span>
-        <span>{"人"}</span>
+        {props.staycount === null ? (
+          <span className={styles.count}>{"データがありません"}</span>
+        ) : (
+          <span className={styles.count}>{props.staycount + "人"}</span>
+        )}
       </p>
 
       {isStared ? (
