@@ -7,8 +7,6 @@
   border: solid 2px var(--primary);
   border-radius: 10px;
   position: relative;
-  scroll-snap-align: start;
-  scroll-margin-top: 20px;
   transition: all 0.3s;
 
   .room_name {
