@@ -1,23 +1,23 @@
 import { StaycountsResponse } from "@/types";
 
-export const stayCountsResponse: StaycountsResponse = {
+export const staycountsResponse: StaycountsResponse = {
   staycounts: [
     {
       building: "1号館",
       floors: [
         {
-          floor: 1,
+          floor: 2,
           rooms: [
-            { id: 1, name: "101", staycount: 10 },
-            { id: 2, name: "102", staycount: 13 },
-            { id: 100, name: "アメリカフェ", staycount: 13 },
+            { id: 4, name: "202", staycount: 13 },
+            { id: 3, name: "201", staycount: 10 },
           ],
         },
         {
-          floor: 2,
+          floor: 1,
           rooms: [
-            { id: 3, name: "201", staycount: 10 },
-            { id: 4, name: "202", staycount: 13 },
+            { id: 100, name: "アメリカフェ", staycount: 13 },
+            { id: 2, name: "102", staycount: 13 },
+            { id: 1, name: "101", staycount: 10 },
           ],
         },
         {

@@ -1,17 +1,24 @@
 import styles from "@/styles/Builds.module.scss";
-import { stayCountsResponse } from "@/const";
+import { staycountsResponse } from "@/const";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { staycountsState } from "../recoil/state";
 import { getStyle } from "../util/util";
+import _ from "lodash";
 
 export default function Builds() {
   const [staycounts, setStaycounts] = useRecoilState(staycountsState);
   const router = useRouter();
 
   useEffect(() => {
-    const res = stayCountsResponse;
+    const res = _.cloneDeep(staycountsResponse);
+    res.staycounts.forEach((building) => {
+      building.floors = _.sortBy(building.floors, "floor");
+      building.floors.forEach((floor) => {
+        floor.rooms = _.sortBy(floor.rooms, "name");
+      });
+    });
     setStaycounts(res.staycounts);
   }, [setStaycounts]);
 
