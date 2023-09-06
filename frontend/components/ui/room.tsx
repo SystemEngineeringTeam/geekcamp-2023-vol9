@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { StarFilledIcon, StarOutlineIcon } from "../util/icons";
 import styles from "./room.module.scss";
-import { useLocalStorage } from "@mantine/hooks";
 
 type Props = {
   key: string;
@@ -16,7 +14,6 @@ type Props = {
 };
 
 export default function Room(props: Props) {
-  const [isStared, setIsStared] = useState(false);
   const roomId = props.id.toString();
 
   return (
@@ -24,7 +21,7 @@ export default function Room(props: Props) {
       id={roomId}
       className={styles.room}
       data-select={props.isSelect}
-      data-star={isStared}
+      data-star={props.isStar}
     >
       <h1 className={styles.title}>
         <span className={styles.room_name}>{props.name}</span>
@@ -40,15 +37,15 @@ export default function Room(props: Props) {
         )}
       </p>
 
-      {isStared ? (
+      {props.isStar ? (
         <StarFilledIcon
           className={styles.star}
-          onClick={() => props.addStar(roomId)}
+          onClick={() => props.removeStar(roomId)}
         />
       ) : (
         <StarOutlineIcon
           className={styles.star}
-          onClick={() => props.removeStar(roomId)}
+          onClick={() => props.addStar(roomId)}
         />
       )}
     </section>
