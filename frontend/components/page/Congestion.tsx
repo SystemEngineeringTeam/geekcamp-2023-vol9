@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import styles from "@/styles/Congestion.module.scss";
 import Room from "@/components/ui/room";
 import { useRecoilValue } from "recoil";
-import { stayCountsState } from "../recoil/state";
+import { staycountsState } from "../recoil/state";
 
 export default function CongestionComponent() {
   const [roomId, setRoomId] = useState<undefined | string>(undefined);
-  const stayCounts = useRecoilValue(stayCountsState);
+  const staycounts = useRecoilValue(staycountsState);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,19 +27,17 @@ export default function CongestionComponent() {
 
   return (
     <div className={styles.congestion}>
-      {Object.keys(stayCounts).map((key) =>
-        stayCounts[key].areas.map((area) =>
-          area.rooms.map((room) => {
-            const roomIdSnap = `${key}-${area.name}-${room.name}`;
+      {staycounts.map((staycount) =>
+        staycount.floors.map((floor) =>
+          floor.rooms.map((room) => {
             return (
               <Room
                 key={room.name}
-                id={roomIdSnap}
+                id={room.id}
                 name={room.name}
+                building={staycount.building}
                 staycount={room.staycount}
-                building={stayCounts[key].name}
-                area={area.name}
-                isSelect={roomId === roomIdSnap}
+                isSelect={roomId === room.id.toString()}
               />
             );
           })

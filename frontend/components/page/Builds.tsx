@@ -3,50 +3,50 @@ import { stayCountsResponse } from "@/const";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { stayCountsState } from "../recoil/state";
-import { getBottomSpace, getGap } from "../util/util";
+import { staycountsState } from "../recoil/state";
+import { getStyle } from "../util/util";
 
 export default function Builds() {
-  const [stayCounts, setStayCounts] = useRecoilState(stayCountsState);
+  const [staycounts, setStaycounts] = useRecoilState(staycountsState);
   const router = useRouter();
 
   useEffect(() => {
     const res = stayCountsResponse;
-    if (res.type === "succeeded") {
-      setStayCounts(res.content.staycounts);
-    }
-  }, [setStayCounts]);
+    setStaycounts(res.staycounts);
+  }, [setStaycounts]);
 
   return (
     <div className={styles.builds}>
-      {Object.keys(stayCounts).map((key) => (
-        <div className={styles.build} key={key}>
+      {staycounts.map((staycount) => (
+        <div className={styles.build} key={staycount.building}>
           <div
             className={styles.image_container}
             style={{
-              backgroundImage: `url(/images/${key}.png)`,
+              backgroundImage: `url(/images/${staycount.building}.png)`,
             }}
           ></div>
 
           <div
             className={styles.selecter}
-            style={{ paddingBottom: `${getBottomSpace(key)}px` }}
+            style={{
+              paddingBottom: `${getStyle(staycount.building).bottomSpace}px`,
+            }}
           >
-            {stayCounts[key].areas.map((area) => (
+            {staycount.floors.map((floor) => (
               <div
                 className={styles.area}
-                style={{ marginTop: `${getGap(key)}px` }}
-                key={area.name}
+                style={{ marginTop: `${getStyle(staycount.building).gap}px` }}
+                key={floor.floor}
               >
-                <h2 className={styles.area_name}>{area.name}</h2>
+                <h2 className={styles.area_name}>{floor.floor}F</h2>
 
-                {area.rooms.map((room) => (
+                {floor.rooms.map((room) => (
                   <span
                     className={styles.room}
                     onClick={() =>
                       router.push({
                         pathname: "/congestion",
-                        query: { roomId: `${key}-${area.name}-${room.name}` },
+                        query: { roomId: `${room.id}` },
                       })
                     }
                     key={room.name}

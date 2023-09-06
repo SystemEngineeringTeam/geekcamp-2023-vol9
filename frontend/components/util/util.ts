@@ -1,21 +1,13 @@
-export function getBottomSpace(buildId: string): number {
+export function getStyle(buildId: string): {
+  gap: number;
+  bottomSpace: number;
+} {
   switch (buildId) {
-    case "bldg1":
-      return 0;
-    case "bldg10":
-      return 15;
+    case "1号館":
+      return { gap: 6.5, bottomSpace: 0 };
+    case "10号館":
+      return { gap: 15, bottomSpace: 17 };
     default:
-      return 0;
-  }
-}
-
-export function getGap(buildId: string): number {
-  switch (buildId) {
-    case "bldg1":
-      return 6.5;
-    case "bldg10":
-      return 17;
-    default:
-      return 0;
+      return { gap: 6.5, bottomSpace: 0 };
   }
 }

@@ -30,7 +30,7 @@
       padding-left: 10px;
       display: flex;
       flex-direction: column-reverse;
-      justify-content: end;
+      justify-content: flex-start;
 
       .area {
         height: 50px;
@@ -63,8 +63,11 @@
     }
 
     scroll-snap-align: start;
+    scroll-margin-left: 50px;
+
     @media (max-width: 1000px) {
       scroll-snap-align: initial;
+      scroll-margin-left: initial;
 
       .image_container,
       .selecter {

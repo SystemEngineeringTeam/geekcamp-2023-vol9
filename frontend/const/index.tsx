@@ -1,68 +1,101 @@
-import { StayCountsResponse } from "@/types";
+import { StaycountsResponse } from "@/types";
 
-export const stayCountsResponse: StayCountsResponse = {
-  type: "succeeded",
-  content: {
-    staycounts: {
-      bldg1: {
-        name: "1号館",
-        areas: [
-          {
-            name: "1F",
-            rooms: [
-              { name: "101", staycount: 10 },
-              { name: "102", staycount: 13 },
-            ],
-          },
-          {
-            name: "2F",
-            rooms: [
-              { name: "201", staycount: 10 },
-              { name: "202", staycount: 13 },
-            ],
-          },
-          {
-            name: "3F",
-            rooms: [
-              { name: "301", staycount: 10 },
-              { name: "302", staycount: 13 },
-            ],
-          },
-          {
-            name: "4F",
-            rooms: [
-              { name: "401", staycount: 10 },
-              { name: "402", staycount: 13 },
-            ],
-          },
-          {
-            name: "5F",
-            rooms: [
-              { name: "501", staycount: 10 },
-              { name: "502", staycount: 13 },
-            ],
-          },
-          {
-            name: "6F",
-            rooms: [
-              { name: "601", staycount: 10 },
-              { name: "602", staycount: 13 },
-            ],
-          },
-        ],
-      },
-      bldg10: {
-        name: "10号館",
-        areas: [
-          {
-            name: "1F",
-            rooms: [
-              { name: "玉森研", staycount: 10 },
-              { name: "xx研", staycount: 13 },
-            ],
-          },
-        ],
-      },
+export const stayCountsResponse: StaycountsResponse = {
+  staycounts: [
+    {
+      building: "1号館",
+      floors: [
+        {
+          floor: 1,
+          rooms: [
+            { id: 1, name: "101", staycount: 10 },
+            { id: 2, name: "102", staycount: 13 },
+            { id: 100, name: "アメリカフェ", staycount: 13 },
+          ],
+        },
+        {
+          floor: 2,
+          rooms: [
+            { id: 3, name: "201", staycount: 10 },
+            { id: 4, name: "202", staycount: 13 },
+          ],
+        },
+        {
+          floor: 3,
+          rooms: [
+            { id: 5, name: "301", staycount: 10 },
+            { id: 6, name: "302", staycount: 13 },
+          ],
+        },
+        {
+          floor: 4,
+          rooms: [
+            { id: 7, name: "401", staycount: 10 },
+            { id: 8, name: "402", staycount: 13 },
+          ],
+        },
+        {
+          floor: 5,
+          rooms: [
+            { id: 9, name: "501", staycount: 10 },
+            { id: 10, name: "502", staycount: 13 },
+          ],
+        },
+        {
+          floor: 6,
+          rooms: [
+            { id: 11, name: "601", staycount: 10 },
+            { id: 12, name: "602", staycount: 13 },
+          ],
+        },
+      ],
     },
-  },
+    {
+      building: "10号館",
+      floors: [
+        {
+          floor: 1,
+          rooms: [
+            { id: 1, name: "101", staycount: 10 },
+            { id: 2, name: "102", staycount: 13 },
+          ],
+        },
+        {
+          floor: 2,
+          rooms: [
+            { id: 3, name: "201", staycount: 10 },
+            { id: 4, name: "202", staycount: 13 },
+          ],
+        },
+        {
+          floor: 3,
+          rooms: [
+            { id: 5, name: "301", staycount: 10 },
+            { id: 6, name: "302", staycount: 13 },
+          ],
+        },
+        {
+          floor: 4,
+          rooms: [
+            { id: 7, name: "401", staycount: 10 },
+            { id: 8, name: "402", staycount: 13 },
+          ],
+        },
+        {
+          floor: 5,
+          rooms: [
+            { id: 9, name: "501", staycount: 10 },
+            { id: 10, name: "502", staycount: 13 },
+          ],
+        },
+        {
+          floor: 6,
+          rooms: [
+            { id: 11, name: "601", staycount: 10 },
+            { id: 12, name: "602", staycount: 13 },
+          ],
+        },
+      ],
+    },
+  ],
 };
