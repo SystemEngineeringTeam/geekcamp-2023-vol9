@@ -10,25 +10,14 @@ type Props = {
   building: string;
   staycount: number | null;
   isSelect: boolean;
+  isStar: boolean;
+  addStar: (roomId: string) => void;
+  removeStar: (roomId: string) => void;
 };
 
 export default function Room(props: Props) {
   const [isStared, setIsStared] = useState(false);
-  const [stars, setStars] = useLocalStorage<string[]>({
-    key: "stars",
-    defaultValue: [],
-  });
   const roomId = props.id.toString();
-
-  useEffect(() => {
-    if (stars.includes(roomId)) setIsStared(true);
-    else setIsStared(false);
-  }, [roomId, stars]);
-
-  useEffect(() => {
-    if (isStared) setStars((s) => [...s, roomId]);
-    else setStars((s) => s.filter((star) => star !== roomId));
-  }, [isStared, roomId, setStars]);
 
   return (
     <section
@@ -54,12 +43,12 @@ export default function Room(props: Props) {
       {isStared ? (
         <StarFilledIcon
           className={styles.star}
-          onClick={() => setIsStared(false)}
+          onClick={() => props.addStar(roomId)}
         />
       ) : (
         <StarOutlineIcon
           className={styles.star}
-          onClick={() => setIsStared(true)}
+          onClick={() => props.removeStar(roomId)}
         />
       )}
     </section>
