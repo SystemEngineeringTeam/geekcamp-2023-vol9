@@ -19,7 +19,8 @@ func Init(){
 
     // V1の設定
 	v1 := router.Group("/api/v1/")
-    v1.GET("/staycount/:location_key", controller.StayCount )
+    v1.GET("/staycount/get/:building_name", controller.StayCountGet )
+    v1.POST("/staycount/post/:room_id", controller.StayCountPost )
 
     // ポート番号の設定
     router.Run(":8080")
