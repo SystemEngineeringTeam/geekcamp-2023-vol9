@@ -114,12 +114,12 @@ export default function Linechart({ roomId }: { roomId: string }) {
         <Bar options={options} data={data} />
       </div>
 
-      <div className={styles.arrow} onClick={prevDate}>
+      {/* <div className={styles.arrow} onClick={prevDate}>
         {"<"}
       </div>
       <div className={styles.arrow} onClick={nextDate}>
         {">"}
-      </div>
+      </div> */}
     </div>
   );
 }
