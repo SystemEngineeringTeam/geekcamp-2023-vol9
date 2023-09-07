@@ -17,8 +17,6 @@ func StayCountGet(c *gin.Context){
 	// println(building.Floors[0].Rooms[0].StayCounts[0].StayCount)
 
 	c.JSON(200, gin.H{
-		"type": "succeeded",
-		"building_name": buildingName,
 		"building": building,
 	})
 }
