@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "@/styles/Congestion.module.scss";
-import Room from "@/components/ui/room";
+import Room from "@/components/ui/room/room";
 import { useStaycount } from "@/hooks/useStaycount";
 import { useLocalStorage } from "@mantine/hooks";
 
