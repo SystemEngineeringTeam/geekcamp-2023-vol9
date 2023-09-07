@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import styles from "@/styles/Home.module.scss";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import Header from "@/components/base/header/header";
@@ -20,10 +21,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <main className={noto.className}>
-        <Component {...pageProps} />
-      </main>
+      <div className={noto.className}>
+        <Header />
+        <main className={styles.main}>
+          <Component {...pageProps} />
+        </main>
+      </div>
     </RecoilRoot>
   );
 }
