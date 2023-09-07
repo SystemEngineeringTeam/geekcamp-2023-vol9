@@ -29,36 +29,36 @@ export type Congestion = {
   }[];
 };
 
+export type Number24 = [
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  number
+];
+
 // 履歴の型
 export type Histories = {
-  histories: {
-    [key: string]: [
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number,
-      number
-    ];
-  };
+  [key: string]: Number24;
 };
 
 // 滞在者数のレスポンスの型
@@ -69,4 +69,9 @@ export type StaycountsResponse = {
 // 混雑度のレスポンスの型
 export type CongestionsResponse = {
   congestions: Congestion[];
+};
+
+// 履歴のレスポンスの型
+export type HistoriesResponse = {
+  histories: Histories;
 };

@@ -50,7 +50,7 @@ export default function Room(props: Props) {
         />
       )}
 
-      <Linechart />
+      <Linechart roomId={roomId} />
     </section>
   );
 }

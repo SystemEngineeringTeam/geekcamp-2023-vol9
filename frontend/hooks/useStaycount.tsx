@@ -1,6 +1,6 @@
 import { staycountsState } from "@/components/recoil/state";
 import { staycountsResponse } from "@/const";
-import _, { set } from "lodash";
+import _ from "lodash";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
