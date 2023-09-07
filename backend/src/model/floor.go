@@ -11,3 +11,8 @@ type Floor struct {
 	BuildingId int			`json:"building_id"`
 	Rooms []Room 			`gorm:"foreignkey:FloorId"`
 }
+
+type GetFloor struct {
+	Floor int				`json:"floor"`
+	Rooms []GetRoom 		`json:"rooms" `
+}

@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// TODO : 一番最初のデータベースに入れる部分は、最終的にSQLにしてDocker起動時に反映するように変更する。
+
 func BuildingDefaultInsert(){
 	building := Building{
 		Name: "四号館別館",

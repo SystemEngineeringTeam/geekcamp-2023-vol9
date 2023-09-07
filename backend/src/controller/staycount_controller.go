@@ -12,9 +12,14 @@ func StayCountGet(c *gin.Context){
 
 	buildingName := c.Param("building_name")
 
+	// 建物の取得
+	building := model.GetStayCount(buildingName)
+	// println(building.Floors[0].Rooms[0].StayCounts[0].StayCount)
+
 	c.JSON(200, gin.H{
 		"type": "succeeded",
 		"building_name": buildingName,
+		"building": building,
 	})
 }
 

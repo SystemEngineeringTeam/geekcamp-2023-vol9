@@ -9,8 +9,4 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/07 - 00:16:41 | 200 |   12.480667ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/07 - 00:16:49 | 200 |   13.901166ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/07 - 00:16:51 | 200 |    9.185416ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/07 - 00:16:52 | 200 |    9.614125ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/07 - 00:16:53 | 200 |   11.151167ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/09/07 - 23:58:46 | 200 |   11.726875ms |       127.0.0.1 | GET      "/api/v1/staycount/get/四号館別館"
