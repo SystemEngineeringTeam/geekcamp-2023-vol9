@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { Staycount } from "@/types";
+import { Histories, Staycount } from "@/types";
 
 export const headerShadowState = atom({
   key: "headerShadowState",
@@ -9,4 +9,9 @@ export const headerShadowState = atom({
 export const staycountsState = atom<Staycount[]>({
   key: "stayCountsState",
   default: [],
+});
+
+export const historyState = atom<Histories>({
+  key: "historyState",
+  default: {},
 });

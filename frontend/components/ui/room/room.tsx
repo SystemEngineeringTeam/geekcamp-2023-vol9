@@ -1,5 +1,6 @@
-import { StarFilledIcon, StarOutlineIcon } from "../util/icons";
+import { StarFilledIcon, StarOutlineIcon } from "../../util/icons";
 import styles from "./room.module.scss";
+import Linechart from "../linechart/linechart";
 
 type Props = {
   key: string;
@@ -48,6 +49,8 @@ export default function Room(props: Props) {
           onClick={() => props.addStar(roomId)}
         />
       )}
+
+      <Linechart roomId={roomId} />
     </section>
   );
 }

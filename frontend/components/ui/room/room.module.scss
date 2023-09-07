@@ -1,6 +1,6 @@
 .room {
   width: 100%;
-  height: 200px;
+  height: 330px;
   padding: 10px;
   color: var(--on-primary);
   background-color: var(--primary);
@@ -28,12 +28,6 @@
     .count {
       font-weight: bold;  
     }
-  }
-
-  &:hover {
-    background-color: var(--on-secondary);
-    color: var(--secondary);
-    border: solid 2px var(--secondary);
   }
 
   &[data-star="true"] {
