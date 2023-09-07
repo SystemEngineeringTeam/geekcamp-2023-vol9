@@ -15,6 +15,8 @@ export default function Builds() {
           <div
             className={styles.image_container}
             style={{
+              ["--width-ratio" as string]: getStyle(staycount.building)
+                .widthRatio,
               backgroundImage: `url(/images/${staycount.building}.png)`,
             }}
           ></div>

@@ -17,7 +17,7 @@
     display: flex;
 
     .image_container {
-      width: min(500px, 110vw);
+      width: calc(min(500px, 110vw) * var(--width-ratio));
       height: 100%;
       position: relative;
       background-size: contain;

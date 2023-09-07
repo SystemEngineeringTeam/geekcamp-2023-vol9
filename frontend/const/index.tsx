@@ -10,44 +10,44 @@ export const staycountsResponse: StaycountsResponse = {
         {
           floor: 2,
           rooms: [
-            { id: 4, name: "202", staycount: 13 },
-            { id: 3, name: "201", staycount: 10 },
+            { id: 100, name: "202", staycount: 13 },
+            { id: 101, name: "201", staycount: 10 },
           ],
         },
         {
           floor: 1,
           rooms: [
-            { id: 100, name: "アメリカフェ", staycount: 13 },
-            { id: 2, name: "102", staycount: null },
-            { id: 1, name: "101", staycount: 10 },
+            { id: 102, name: "アメリカフェ", staycount: 13 },
+            { id: 103, name: "102", staycount: null },
+            { id: 104, name: "101", staycount: 10 },
           ],
         },
         {
           floor: 3,
           rooms: [
-            { id: 5, name: "301", staycount: 10 },
-            { id: 6, name: "302", staycount: 13 },
+            { id: 105, name: "301", staycount: 10 },
+            { id: 106, name: "302", staycount: 13 },
           ],
         },
         {
           floor: 4,
           rooms: [
-            { id: 7, name: "401", staycount: 10 },
-            { id: 8, name: "402", staycount: 13 },
+            { id: 107, name: "401", staycount: 10 },
+            { id: 108, name: "402", staycount: 13 },
           ],
         },
         {
           floor: 5,
           rooms: [
-            { id: 9, name: "501", staycount: 10 },
-            { id: 10, name: "502", staycount: 13 },
+            { id: 109, name: "501", staycount: 10 },
+            { id: 110, name: "502", staycount: 13 },
           ],
         },
         {
           floor: 6,
           rooms: [
-            { id: 11, name: "601", staycount: 10 },
-            { id: 12, name: "602", staycount: 13 },
+            { id: 111, name: "601", staycount: 10 },
+            { id: 112, name: "602", staycount: 13 },
           ],
         },
       ],
@@ -58,44 +58,92 @@ export const staycountsResponse: StaycountsResponse = {
         {
           floor: 1,
           rooms: [
-            { id: 13, name: "101", staycount: 10 },
-            { id: 14, name: "102", staycount: 13 },
+            { id: 1001, name: "101", staycount: 10 },
+            { id: 1002, name: "102", staycount: 13 },
           ],
         },
         {
           floor: 2,
           rooms: [
-            { id: 15, name: "201", staycount: 10 },
-            { id: 16, name: "202", staycount: 13 },
+            { id: 1003, name: "201", staycount: 10 },
+            { id: 1004, name: "202", staycount: 13 },
           ],
         },
         {
           floor: 3,
           rooms: [
-            { id: 17, name: "301", staycount: 10 },
-            { id: 18, name: "302", staycount: 13 },
+            { id: 1005, name: "301", staycount: 10 },
+            { id: 1006, name: "302", staycount: 13 },
           ],
         },
         {
           floor: 4,
           rooms: [
-            { id: 19, name: "401", staycount: 10 },
-            { id: 20, name: "402", staycount: 13 },
+            { id: 1007, name: "401", staycount: 10 },
+            { id: 1008, name: "402", staycount: 13 },
           ],
         },
         {
           floor: 5,
           rooms: [
-            { id: 21, name: "501", staycount: 10 },
-            { id: 22, name: "502", staycount: 13 },
+            { id: 1009, name: "501", staycount: 10 },
+            { id: 1010, name: "502", staycount: 13 },
           ],
         },
         {
           floor: 6,
           rooms: [
-            { id: 23, name: "601", staycount: 10 },
-            { id: 24, name: "602", staycount: 13 },
+            { id: 1011, name: "601", staycount: 10 },
+            { id: 1012, name: "602", staycount: 13 },
           ],
+        },
+      ],
+    },
+    {
+      building: "4号館",
+      floors: [
+        {
+          floor: 1,
+          rooms: [
+            { id: 401, name: "401", staycount: 10 },
+            { id: 402, name: "玉森研", staycount: 13 },
+          ],
+        },
+        {
+          floor: 2,
+          rooms: [{ id: 403, name: "402", staycount: 10 }],
+        },
+        {
+          floor: 3,
+          rooms: [{ id: 405, name: "403", staycount: 10 }],
+        },
+        {
+          floor: 4,
+          rooms: [{ id: 407, name: "404", staycount: 10 }],
+        },
+      ],
+    },
+    {
+      building: "4号館別館",
+      floors: [
+        {
+          floor: 1,
+          rooms: [{ id: 410, name: "梶研", staycount: 13 }],
+        },
+        {
+          floor: 2,
+          rooms: [{ id: 411, name: "暢浩研", staycount: 10 }],
+        },
+        {
+          floor: 3,
+          rooms: [
+            { id: 412, name: "内藤研", staycount: 10 },
+            { id: 412, name: "シス研", staycount: 10 },
+          ],
+        },
+        {
+          floor: 4,
+          rooms: [{ id: 413, name: "慎士研", staycount: 10 }],
         },
       ],
     },
