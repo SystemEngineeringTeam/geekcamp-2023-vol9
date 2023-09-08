@@ -14,10 +14,8 @@ import (
 // @Router /api/v1/congestion/get/{building_name} [get]
 func GetCongestionDegree (c *gin.Context){
 
-	buildingName := c.Param("building_name")
-
 	// 建物の取得
-	building := model.GetCongestionDegree(buildingName)
+	building := model.GetCongestionDegree()
 
 	c.JSON(200, gin.H{
 		"congestions": building,

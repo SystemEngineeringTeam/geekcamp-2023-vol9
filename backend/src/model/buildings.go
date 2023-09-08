@@ -71,58 +71,65 @@ func GetStayCount() []GetStayCountBuildingModel {
 	
 }
 
-func GetCongestionDegree(buildingName string) GetCongestionBuildingModel{
+func GetCongestionDegree() []GetCongestionBuildingModel{
 	// 建物の取得
-	building := Building{}
-	req := GetCongestionBuildingModel{}
-	db.Where("name = ?", buildingName).First(&building)
+	building := []Building{}
+	req := []GetCongestionBuildingModel{}
+	db.Find(&building)
 	
-	// 建物に紐づく階の取得
-	floors := []Floor{}
-	reqFloars := []GetCongestionFloorModel{}
-	db.Where("building_id = ?", building.ID).Find(&floors)
+	for _, building := range building {
 
-	for _ , floor := range floors {
+		// 建物に紐づく階の取得
+		floors := []Floor{}
+		reqFloars := []GetCongestionFloorModel{}
+		db.Where("building_id = ?", building.ID).Find(&floors)
 
-		// 階に紐づく部屋の取得
-		rooms := []Room{}
-		reqRooms := []GetCongestionRoomModel{}
-		db.Where("floor_id = ?", floor.ID).Find(&rooms)
+		for _ , floor := range floors {
 
-		for roomIndex, room := range rooms {
+			// 階に紐づく部屋の取得
+			rooms := []Room{}
+			reqRooms := []GetCongestionRoomModel{}
+			db.Where("floor_id = ?", floor.ID).Find(&rooms)
 
-			// 部屋に紐づく滞在人数の取得
-			maxStayCount := StayCount{}
-			stayCount := []StayCount{}
-			db.Where("room_id = ?", room.ID).Order("stay_count DESC").First(&maxStayCount)
-			db.Where("room_id = ?", room.ID).Last(&stayCount)
+			for roomIndex, room := range rooms {
 
-			// 混雑度の計算
-			congestion := 0.0
-			if maxStayCount.StayCount == 0 {
-				congestion = 0
-			}else{
-				congestion = float64(stayCount[0].StayCount) / float64(maxStayCount.StayCount) * 100
-				rooms[roomIndex].StayCounts = stayCount
+				// 部屋に紐づく滞在人数の取得
+				maxStayCount := StayCount{}
+				stayCount := []StayCount{}
+				db.Where("room_id = ?", room.ID).Order("stay_count DESC").First(&maxStayCount)
+				db.Where("room_id = ?", room.ID).Last(&stayCount)
+
+				// 混雑度の計算
+				congestion := 0.0
+				if maxStayCount.StayCount == 0 {
+					congestion = 0
+				}else{
+					congestion = float64(stayCount[0].StayCount) / float64(maxStayCount.StayCount) * 100
+					rooms[roomIndex].StayCounts = stayCount
+				}
+
+				// 確認
+				println(building.Name, floor.Floor, room.Name, congestion)
+
+				// reqに詰め替える
+				reqRooms = append(reqRooms, GetCongestionRoomModel{
+					Name: room.Name,
+					RoomId: int(room.ID),
+					Congestion: congestion,
+				})
 			}
-
-			// 確認
-			println(buildingName, floor.Floor, room.Name, congestion)
-
-			// reqに詰め替える
-			reqRooms = append(reqRooms, GetCongestionRoomModel{
-				Name: room.Name,
-				RoomId: int(room.ID),
-				Congestion: congestion,
+			reqFloars = append(reqFloars, GetCongestionFloorModel{
+				Floor: floor.Floor,
+				Rooms: reqRooms,
 			})
 		}
-		reqFloars = append(reqFloars, GetCongestionFloorModel{
-			Floor: floor.Floor,
-			Rooms: reqRooms,
+
+		req = append(req, GetCongestionBuildingModel{
+			Name: building.Name,
+			Floors: reqFloars,
+
 		})
 	}
-	req.Floors = reqFloars
-	req.Name = building.Name
 
 	return req
 

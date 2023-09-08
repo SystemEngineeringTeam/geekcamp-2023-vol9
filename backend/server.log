@@ -5,18 +5,16 @@
  - using code:	gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /api/v1/staycount/get/    --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountGet (3 handlers)
-[GIN-debug] GET    /api/v1/congestion/get/:building_name --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (3 handlers)
+[GIN-debug] GET    /api/v1/congestion/get/   --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (3 handlers)
 [GIN-debug] POST   /api/v1/staycount/post/:room_id --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountPost (3 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/09 - 08:37:11 | 404 |     170.291µs |       127.0.0.1 | GET      "/api/v1/swagger/inidex.html"
-[GIN] 2023/09/09 - 08:37:28 | 200 |      960.25µs |       127.0.0.1 | GET      "/api/v1/swagger/index.html"
-[GIN] 2023/09/09 - 08:37:28 | 200 |    1.531792ms |       127.0.0.1 | GET      "/api/v1/swagger/swagger-ui.css"
-[GIN] 2023/09/09 - 08:37:28 | 200 |     644.291µs |       127.0.0.1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
-[GIN] 2023/09/09 - 08:37:28 | 200 |   12.078208ms |       127.0.0.1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
-[GIN] 2023/09/09 - 08:37:28 | 200 |       383.5µs |       127.0.0.1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
-[GIN] 2023/09/09 - 08:37:28 | 200 |       1.721ms |       127.0.0.1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
-[GIN] 2023/09/09 - 08:37:29 | 200 |         371µs |       127.0.0.1 | GET      "/api/v1/swagger/doc.json"
-[GIN] 2023/09/09 - 08:37:29 | 200 |      75.833µs |       127.0.0.1 | GET      "/api/v1/swagger/favicon-32x32.png"
+[GIN] 2023/09/09 - 08:43:42 | 404 |         375ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:47 | 404 |         334ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:48 | 404 |         458ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:48 | 404 |         375ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:49 | 404 |         458ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:49 | 404 |         334ns |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/09 - 08:43:53 | 200 |   84.024208ms |       127.0.0.1 | GET      "/api/v1/congestion/get/"
