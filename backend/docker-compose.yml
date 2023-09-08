@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mysql:
+    container_name: koukaten2023_DB
+    image: mysql:latest
+    volumes:
+      - ./build/mysql/mysqld_charset.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3309:3309"
+    expose:
+      - 3309
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: koukaten2023
+      MYSQL_TCP_PORT: 3309

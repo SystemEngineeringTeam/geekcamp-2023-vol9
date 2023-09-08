@@ -1,0 +1,15 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/v1/staycount/get/:building_name --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountGet (3 handlers)
+[GIN-debug] GET    /api/v1/congestion/get/:building_name --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (3 handlers)
+[GIN-debug] POST   /api/v1/staycount/post/:room_id --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountPost (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/09/08 - 01:31:18 | 200 |   36.816542ms |       127.0.0.1 | GET      "/api/v1/congestion/get/四号館別館"
+[GIN] 2023/09/08 - 01:31:22 | 200 |   14.850042ms |       127.0.0.1 | GET      "/api/v1/staycount/get/四号館別館"
+[GIN] 2023/09/08 - 01:31:43 | 200 |   21.131875ms |       127.0.0.1 | POST     "/api/v1/staycount/post/4"
