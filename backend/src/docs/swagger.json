@@ -1,0 +1,181 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "このswaggerはCampusCrowdMonitorのapiです",
+        "title": "CampusCrowdMonitor",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/congestion/get/{building_name}": {
+            "get": {
+                "description": "混雑度は、今までの滞在者数の最大値 / 現在の滞在者数で求める。",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "混雑度を取得する",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.GetCongestionResponseModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/staycount/get/{building_name}": {
+            "get": {
+                "description": "arpscanによって取得したデータを元に滞在者数を取得する、滞在者数は最新のものを取得する",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "滞在者数を取得する",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.GetStayCountResponseModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/staycount/post/{building_name}": {
+            "post": {
+                "description": "arpscanによって取得したデータを元に滞在者数を登録する",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "滞在者数を登録する",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.PostStayCountRequestModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.GetCongestionBuildingModel": {
+            "type": "object",
+            "properties": {
+                "floors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetCongestionFloorModel"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.GetCongestionFloorModel": {
+            "type": "object",
+            "properties": {
+                "floor": {
+                    "type": "integer"
+                },
+                "rooms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetCongestionRoomModel"
+                    }
+                }
+            }
+        },
+        "model.GetCongestionResponseModel": {
+            "type": "object",
+            "properties": {
+                "building": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetCongestionBuildingModel"
+                    }
+                }
+            }
+        },
+        "model.GetCongestionRoomModel": {
+            "type": "object",
+            "properties": {
+                "congestion": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "room_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.GetStayCountBuildingModel": {
+            "type": "object",
+            "properties": {
+                "floors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetStayCountFloorModel"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.GetStayCountFloorModel": {
+            "type": "object",
+            "properties": {
+                "floor": {
+                    "type": "integer"
+                },
+                "rooms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetStayCountRoomModel"
+                    }
+                }
+            }
+        },
+        "model.GetStayCountResponseModel": {
+            "type": "object",
+            "properties": {
+                "building": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetStayCountBuildingModel"
+                    }
+                }
+            }
+        },
+        "model.GetStayCountRoomModel": {
+            "type": "object",
+            "properties": {
+                "headcount": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "room_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.PostStayCountRequestModel": {
+            "type": "object",
+            "properties": {
+                "headcount": {
+                    "type": "integer"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

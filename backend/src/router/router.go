@@ -6,6 +6,10 @@ import (
 
 	"github.com/gin-gonic/gin"
     "github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller"
+
+    swaggerfiles "github.com/swaggo/files"
+    ginSwagger "github.com/swaggo/gin-swagger"
+
 )
 
 func Init(){
@@ -20,8 +24,11 @@ func Init(){
     // V1の設定
 	v1 := router.Group("/api/v1/")
     v1.GET("/staycount/get/:building_name", controller.StayCountGet )
-    v1.GET("congestion/get/:building_name", controller.GetCongestionDegree )
+    v1.GET("/congestion/get/:building_name", controller.GetCongestionDegree )
     v1.POST("/staycount/post/:room_id", controller.StayCountPost )
+
+    // 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
+    v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
     // ポート番号の設定
     router.Run(":8080")
