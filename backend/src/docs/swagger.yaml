@@ -1,0 +1,116 @@
+definitions:
+  model.GetCongestionBuildingModel:
+    properties:
+      floors:
+        items:
+          $ref: '#/definitions/model.GetCongestionFloorModel'
+        type: array
+      name:
+        type: string
+    type: object
+  model.GetCongestionFloorModel:
+    properties:
+      floor:
+        type: integer
+      rooms:
+        items:
+          $ref: '#/definitions/model.GetCongestionRoomModel'
+        type: array
+    type: object
+  model.GetCongestionResponseModel:
+    properties:
+      building:
+        items:
+          $ref: '#/definitions/model.GetCongestionBuildingModel'
+        type: array
+    type: object
+  model.GetCongestionRoomModel:
+    properties:
+      congestion:
+        type: number
+      name:
+        type: string
+      room_id:
+        type: integer
+    type: object
+  model.GetStayCountBuildingModel:
+    properties:
+      floors:
+        items:
+          $ref: '#/definitions/model.GetStayCountFloorModel'
+        type: array
+      name:
+        type: string
+    type: object
+  model.GetStayCountFloorModel:
+    properties:
+      floor:
+        type: integer
+      rooms:
+        items:
+          $ref: '#/definitions/model.GetStayCountRoomModel'
+        type: array
+    type: object
+  model.GetStayCountResponseModel:
+    properties:
+      building:
+        items:
+          $ref: '#/definitions/model.GetStayCountBuildingModel'
+        type: array
+    type: object
+  model.GetStayCountRoomModel:
+    properties:
+      headcount:
+        type: integer
+      name:
+        type: string
+      room_id:
+        type: integer
+    type: object
+  model.PostStayCountRequestModel:
+    properties:
+      headcount:
+        type: integer
+      time:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: このswaggerはCampusCrowdMonitorのapiです
+  title: CampusCrowdMonitor
+  version: "1.0"
+paths:
+  /api/v1/congestion/get/{building_name}:
+    get:
+      description: 混雑度は、今までの滞在者数の最大値 / 現在の滞在者数で求める。
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GetCongestionResponseModel'
+      summary: 混雑度を取得する
+  /api/v1/staycount/get/{building_name}:
+    get:
+      description: arpscanによって取得したデータを元に滞在者数を取得する、滞在者数は最新のものを取得する
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GetStayCountResponseModel'
+      summary: 滞在者数を取得する
+  /api/v1/staycount/post/{building_name}:
+    post:
+      description: arpscanによって取得したデータを元に滞在者数を登録する
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.PostStayCountRequestModel'
+      summary: 滞在者数を登録する
+swagger: "2.0"
