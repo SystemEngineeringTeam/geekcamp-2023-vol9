@@ -16,14 +16,12 @@ import (
 // @Router /api/v1/staycount/get/{building_name} [get]
 func StayCountGet(c *gin.Context) {
 
-	buildingName := c.Param("building_name")
-
 	// 建物の取得
-	building := model.GetStayCount(buildingName)
+	building := model.GetStayCount()
 	// println(building.Floors[0].Rooms[0].StayCounts[0].StayCount)
 
 	c.JSON(200, gin.H{
-		"building": building,
+		"buildings": building,
 	})
 }
 

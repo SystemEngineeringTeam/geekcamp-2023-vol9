@@ -3,7 +3,7 @@ package model
 import "time"
 
 type GetStayCountResponseModel struct {
-	Building []GetStayCountBuildingModel			`json:"building"`
+	Buildings []GetStayCountBuildingModel			`json:"building"`
 }
 
 type GetCongestionResponseModel struct {

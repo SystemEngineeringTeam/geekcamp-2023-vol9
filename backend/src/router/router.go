@@ -23,7 +23,7 @@ func Init(){
 
     // V1の設定
 	v1 := router.Group("/api/v1/")
-    v1.GET("/staycount/get/:building_name", controller.StayCountGet )
+    v1.GET("/staycount/get/", controller.StayCountGet )
     v1.GET("/congestion/get/:building_name", controller.GetCongestionDegree )
     v1.POST("/staycount/post/:room_id", controller.StayCountPost )
 

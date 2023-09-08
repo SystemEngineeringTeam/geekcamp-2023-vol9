@@ -23,7 +23,7 @@ type GetCongestionBuildingModel struct {
 	Floors []GetCongestionFloorModel 		`json:"floors"`
 }
 
-func GetStayCount(buildingName string) GetStayCountBuildingModel {
+func GetStayCount() []GetStayCountBuildingModel {
 
 	// TODO: いっぱいSQLを飛ばしてしまうため、改善の余地あり
 	// DBの結合がヒントらしい
@@ -32,39 +32,43 @@ func GetStayCount(buildingName string) GetStayCountBuildingModel {
 	// 部室にある応用情報の本のDBのセクションに載ってるのがわかりやすいらしい。
 
 	// Jsonに変換するための構造体
-	building := Building{}
-	req := GetStayCountBuildingModel{}
-
+	building := []Building{}
 
 	// TODO: StayCountが大量にあるときに、最新のものだけ取得するようにする
 	db.Preload("Floors.Rooms.StayCounts").
-		Where("name = ?", buildingName).
-		First(&building)
+		Find(&building)
 
 	fmt.Println(building)
 
 	// reqに詰め替える
-	reqFloars := []GetStayCountFloorModel{}
-	for _, floor := range building.Floors {
-
-		reqRooms := []GetStayCountRoomModel{}
-		for _, room := range floor.Rooms {
-			reqRooms = append(reqRooms, GetStayCountRoomModel{
-				Name: room.Name,
-				RoomId: int(room.ID),
-				StayCount: room.StayCounts[len(room.StayCounts)-1].StayCount,
+	req := []GetStayCountBuildingModel{}
+	for _, building := range building {
+		reqFloars := []GetStayCountFloorModel{}
+		for _, floor := range building.Floors {
+	
+			reqRooms := []GetStayCountRoomModel{}
+			for _, room := range floor.Rooms {
+				reqRooms = append(reqRooms, GetStayCountRoomModel{
+					Name: room.Name,
+					RoomId: int(room.ID),
+					StayCount: room.StayCounts[len(room.StayCounts)-1].StayCount,
+				})
+			}
+	
+			reqFloars = append(reqFloars, GetStayCountFloorModel{
+				Floor: floor.Floor,
+				Rooms: reqRooms,
 			})
 		}
-
-		reqFloars = append(reqFloars, GetStayCountFloorModel{
-			Floor: floor.Floor,
-			Rooms: reqRooms,
+	
+		req = append(req, GetStayCountBuildingModel{
+			Name: building.Name,
+			Floors: reqFloars,
 		})
 	}
-	req.Floors = reqFloars
-	req.Name = building.Name
 
 	return req
+	
 }
 
 func GetCongestionDegree(buildingName string) GetCongestionBuildingModel{
