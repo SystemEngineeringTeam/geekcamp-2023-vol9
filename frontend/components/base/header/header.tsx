@@ -13,7 +13,7 @@ export default function Header() {
       data-shadow={shadow}
       onClick={() => router.push("/")}
     >
-      <h1 className={styles.title}>AppName</h1>
+      <h1 className={styles.title}>CampusCrowdMonitor</h1>
     </header>
   );
 }
