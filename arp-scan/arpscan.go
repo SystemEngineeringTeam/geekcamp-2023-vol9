@@ -24,10 +24,11 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func main() {
+func ArpScan(ip string, m int) int {
 	godotenv.Load(".env")
+	// 使用するインターフェースを設定
 	i, _ := strconv.Atoi(os.Getenv("INTERFACE_INDEX"))
-	m, _ := strconv.Atoi(os.Getenv("NETWORK_MASK"))
+	// m, _ := strconv.Atoi(os.Getenv("NETWORK_MASK"))
 	ha, _ := net.ParseMAC(os.Getenv("INTERFACE_HARDWAREADDR"))
 	iface := net.Interface{
 		Index:        i,
@@ -35,12 +36,18 @@ func main() {
 		Name:         os.Getenv("INTERFACE_NAME"),
 		HardwareAddr: ha,
 	}
-	ip := net.ParseIP(os.Getenv("NETWORK_ADDR"))
-	ip4 := ip.To4()
+
+	// 今回アクセスするIPを設定
+	ip4 := net.ParseIP(ip).To4()
 	mask := net.CIDRMask(m, 32)
-	if err := scan(&iface, ip4, mask); err != nil {
+
+	// スキャンを実行
+	c, err := scan(&iface, ip4, mask)
+	if err != nil {
 		log.Printf("interface %v: %v", iface.Name, err)
 	}
+
+	return c
 }
 
 // scan scans an individual interface's local network for machines using ARP requests/replies.
@@ -48,41 +55,46 @@ func main() {
 // scan loops forever, sending packets out regularly.  It returns an error if
 // it's ever unable to write a packet.
 // ARPを使ってネットワーク上のデバイスをスキャンする
-func scan(iface *net.Interface, ip net.IP, mask net.IPMask) error {
+func scan(iface *net.Interface, ip net.IP, mask net.IPMask) (int, error) {
 	addr := &net.IPNet{
 		IP:   ip,
 		Mask: mask,
 	}
-	log.Printf("Using network range %v for interface %v", addr, iface.Name)
 
 	// Open up a pcap handle for packet reads/writes.
 	handle, err := pcap.OpenLive(iface.Name, 65536, true, pcap.BlockForever)
 	if err != nil {
-		return err
+		return 0, err
 	}
 	defer handle.Close()
 
 	// Start up a goroutine to read in packet data.
 	stop := make(chan struct{})
-	go readARP(handle, iface, stop)
-	defer close(stop)
+	// 接続しているデバイス数を取得するためのchannelを設定
+	c := make(chan int)
+	go readARP(handle, iface, stop, c)
+	defer close(c)
 	// Write our scan packets out to the handle.
 	writeARP(handle, iface, addr)
 	time.Sleep(1 * time.Second)
-	return nil
+	close(stop)
+	count := <-c
+	return count, nil
 }
 
 // readARP watches a handle for incoming ARP responses we might care about, and prints them.
 //
 // readARP loops until 'stop' is closed.
 // ネットワーク上で発生するARPレスポンスを受信し、その応答を解析する
-func readARP(handle *pcap.Handle, iface *net.Interface, stop chan struct{}) {
+func readARP(handle *pcap.Handle, iface *net.Interface, stop chan struct{}, c chan int) {
 	src := gopacket.NewPacketSource(handle, layers.LayerTypeEthernet)
 	in := src.Packets()
+	count := 0
 	for {
 		var packet gopacket.Packet
 		select {
 		case <-stop:
+			c <- count
 			return
 		case packet = <-in:
 			arpLayer := packet.Layer(layers.LayerTypeARP)
@@ -100,6 +112,7 @@ func readARP(handle *pcap.Handle, iface *net.Interface, stop chan struct{}) {
 			if arp.SourceProtAddress[len(arp.SourceProtAddress)-1] == 1 {
 				continue
 			}
+			count++
 			log.Printf("IP %v is at %v", net.IP(arp.SourceProtAddress), net.HardwareAddr(arp.SourceHwAddress))
 		}
 	}
