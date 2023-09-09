@@ -1,5 +1,5 @@
 # ARP SCAN
-このプログラムは BSD 3-Clause "New" or "Revised" Licenseに基づいて google/gopacket の「arpscan.go」を改変、利用しています
+`service/arpscan`は BSD 3-Clause "New" or "Revised" Licenseに基づいて google/gopacket の「arpscan.go」を改変、利用しています
 https://github.com/google/gopacket/blob/master/examples/arpscan/arpscan.go
 
 ## 使用方法
