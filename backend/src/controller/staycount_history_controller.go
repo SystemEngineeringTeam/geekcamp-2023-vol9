@@ -20,79 +20,79 @@ func StayCountHistoriesGet(c *gin.Context) {
 	// TODO: しっかりとMySQLからデータを取得する
 
 	histories := []model.History{
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 0, 3, 3, 4, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 0,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 1,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 0, 3, 4, 4, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 2,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 3, 2, 2, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 3,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 13,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 39,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 41,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 44,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 45,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				2, 4, 4, 2, 2, 2, 2, 3, 4, 4, 4, 3, 4, 8, 8, 8, 5, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 61,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3, 3, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 63,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				3, 0, 0, 3, 3, 3, 3, 3, 5, 5, 5, 3, 6, 6, 6, 6, 5, 0, 0, 0, 0, 0, 0, 0,
 			},
 			RoomId: 70,
 		},
-		model.History{
+		{
 			StayCount: [24]int{
 				0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			},
