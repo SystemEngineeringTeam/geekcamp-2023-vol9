@@ -7,7 +7,6 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 import { _DeepPartialObject } from "chart.js/dist/types/utils";
 import { useState } from "react";
 import { labels } from "@/const";
@@ -24,7 +23,7 @@ export default function Linechart({ roomId }: { roomId: string }) {
     labels,
     datasets: [
       {
-        data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
+        data: histories[roomId],
         backgroundColor: "rgb(252, 109, 105)",
       },
     ],
