@@ -36,8 +36,13 @@ ExecStart=go run main.go
 ```sudo systemctl deamon-reload```
 
 1. タイマーを有効にして開始
-```sudo systemctl enable arpscan.timer```
-```sudo systemctl start arpscan.timer```
-
-1. タイマーが実行されていることを確認
-```systemctl list-timers```
+```
+sudo systemctl enable arpscan.timer
+```
+```
+sudo systemctl start arpscan.timer
+```
+8. タイマーが実行されていることを確認
+```
+systemctl list-timers
+```
