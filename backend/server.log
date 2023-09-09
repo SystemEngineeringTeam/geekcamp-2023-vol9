@@ -6,10 +6,17 @@
 
 [GIN-debug] GET    /api/v1/staycount/get/    --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountGet (4 handlers)
 [GIN-debug] GET    /api/v1/congestion/get/   --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (4 handlers)
+[GIN-debug] GET    /api/v1/staycount/history/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGet (4 handlers)
 [GIN-debug] POST   /api/v1/staycount/post/:room_id --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountPost (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/10 - 02:25:20 | 200 |    8.708584ms |       127.0.0.1 | GET      "/api/v1/staycount/get/"
-[GIN] 2023/09/10 - 02:25:29 | 200 |   85.444917ms |       127.0.0.1 | GET      "/api/v1/congestion/get/"
+[GIN] 2023/09/10 - 04:27:30 | 200 |    2.238333ms |             ::1 | GET      "/api/v1/swagger/index.html"
+[GIN] 2023/09/10 - 04:27:30 | 200 |     626.709µs |             ::1 | GET      "/api/v1/swagger/swagger-ui.css"
+[GIN] 2023/09/10 - 04:27:30 | 200 |         350µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/09/10 - 04:27:30 | 200 |   18.631291ms |             ::1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
+[GIN] 2023/09/10 - 04:27:30 | 200 |      290.25µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2023/09/10 - 04:27:30 | 200 |    7.371458ms |             ::1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
+[GIN] 2023/09/10 - 04:27:30 | 200 |     337.458µs |             ::1 | GET      "/api/v1/swagger/doc.json"
+[GIN] 2023/09/10 - 04:27:30 | 200 |       49.25µs |             ::1 | GET      "/api/v1/swagger/favicon-32x32.png"
