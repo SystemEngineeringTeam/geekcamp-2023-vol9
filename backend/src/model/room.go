@@ -10,6 +10,7 @@ type Room struct {
 	Name string     		`json:"name"`
 	FloorId int				`json:"floor_id"`
 	StayCounts []StayCount 	`gorm:"foreignkey:RoomId"`
+	// History []History 		`gorm:"foreignkey:RoomId"`
 }
 
 type GetStayCountRoomModel struct {
