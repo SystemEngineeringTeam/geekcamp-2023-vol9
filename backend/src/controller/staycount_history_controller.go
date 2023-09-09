@@ -14,7 +14,7 @@ import (
 // @Description 滞在者数の履歴を取得する。これは24時間分のデータを取得する。
 // @Tag StayCount
 // @Produce  json
-// @Success 200 {object} model.GetStayCountResponseModel
+// @Success 200 {object} model.GetStayCountHistoryRequestModel
 // @Router /api/v1/staycount/history/ [get]
 func StayCountHistoriesGet(c *gin.Context) {
 	// TODO: しっかりとMySQLからデータを取得する

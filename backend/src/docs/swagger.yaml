@@ -1,12 +1,12 @@
 definitions:
   model.GetCongestionBuildingModel:
     properties:
+      building:
+        type: string
       floors:
         items:
           $ref: '#/definitions/model.GetCongestionFloorModel'
         type: array
-      name:
-        type: string
     type: object
   model.GetCongestionFloorModel:
     properties:
@@ -28,19 +28,19 @@ definitions:
     properties:
       congestion:
         type: number
+      id:
+        type: integer
       name:
         type: string
-      room_id:
-        type: integer
     type: object
   model.GetStayCountBuildingModel:
     properties:
+      building:
+        type: string
       floors:
         items:
           $ref: '#/definitions/model.GetStayCountFloorModel'
         type: array
-      name:
-        type: string
     type: object
   model.GetStayCountFloorModel:
     properties:
@@ -49,6 +49,20 @@ definitions:
       rooms:
         items:
           $ref: '#/definitions/model.GetStayCountRoomModel'
+        type: array
+    type: object
+  model.GetStayCountHistoryModel:
+    properties:
+      "0":
+        items:
+          type: integer
+        type: array
+    type: object
+  model.GetStayCountHistoryRequestModel:
+    properties:
+      histories:
+        items:
+          $ref: '#/definitions/model.GetStayCountHistoryModel'
         type: array
     type: object
   model.GetStayCountResponseModel:
@@ -60,11 +74,11 @@ definitions:
     type: object
   model.GetStayCountRoomModel:
     properties:
-      headcount:
+      id:
         type: integer
       name:
         type: string
-      room_id:
+      staycount:
         type: integer
     type: object
   model.PostStayCountRequestModel:
@@ -102,6 +116,17 @@ paths:
           schema:
             $ref: '#/definitions/model.GetStayCountResponseModel'
       summary: 滞在者数を取得する
+  /api/v1/staycount/history/:
+    get:
+      description: 滞在者数の履歴を取得する。これは24時間分のデータを取得する。
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GetStayCountHistoryRequestModel'
+      summary: 滞在者数の履歴を取得する（今日だけ）
   /api/v1/staycount/post/{building_name}:
     post:
       description: arpscanによって取得したデータを元に滞在者数を登録する

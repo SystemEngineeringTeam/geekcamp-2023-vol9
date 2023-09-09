@@ -49,6 +49,23 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v1/staycount/history/": {
+            "get": {
+                "description": "滞在者数の履歴を取得する。これは24時間分のデータを取得する。",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "滞在者数の履歴を取得する（今日だけ）",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.GetStayCountHistoryRequestModel"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/staycount/post/{building_name}": {
             "post": {
                 "description": "arpscanによって取得したデータを元に滞在者数を登録する",
@@ -71,14 +88,14 @@ const docTemplate = `{
         "model.GetCongestionBuildingModel": {
             "type": "object",
             "properties": {
+                "building": {
+                    "type": "string"
+                },
                 "floors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.GetCongestionFloorModel"
                     }
-                },
-                "name": {
-                    "type": "string"
                 }
             }
         },
@@ -113,25 +130,25 @@ const docTemplate = `{
                 "congestion": {
                     "type": "number"
                 },
+                "id": {
+                    "type": "integer"
+                },
                 "name": {
                     "type": "string"
-                },
-                "room_id": {
-                    "type": "integer"
                 }
             }
         },
         "model.GetStayCountBuildingModel": {
             "type": "object",
             "properties": {
+                "building": {
+                    "type": "string"
+                },
                 "floors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.GetStayCountFloorModel"
                     }
-                },
-                "name": {
-                    "type": "string"
                 }
             }
         },
@@ -145,6 +162,28 @@ const docTemplate = `{
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.GetStayCountRoomModel"
+                    }
+                }
+            }
+        },
+        "model.GetStayCountHistoryModel": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "model.GetStayCountHistoryRequestModel": {
+            "type": "object",
+            "properties": {
+                "histories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.GetStayCountHistoryModel"
                     }
                 }
             }
@@ -163,13 +202,13 @@ const docTemplate = `{
         "model.GetStayCountRoomModel": {
             "type": "object",
             "properties": {
-                "headcount": {
+                "id": {
                     "type": "integer"
                 },
                 "name": {
                     "type": "string"
                 },
-                "room_id": {
+                "staycount": {
                     "type": "integer"
                 }
             }
