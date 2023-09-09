@@ -7,7 +7,7 @@ Copyright (c) 2009-2011 Andreas Krennmair. All rights reserved.
 Released under the "BSD 3-Clause "New" or "Revised" License".
 */
 
-package main
+package service
 
 import (
 	"bytes"
