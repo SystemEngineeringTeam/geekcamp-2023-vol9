@@ -14,12 +14,12 @@ type Room struct {
 
 type GetStayCountRoomModel struct {
 	Name string     				`json:"name"`
-	RoomId int						`json:"room_id"`
-	StayCount int         			`json:"headcount"`
+	RoomId int						`json:"id"`
+	StayCount int         			`json:"staycount"`
 }
 
 type GetCongestionRoomModel struct {
 	Name string     					`json:"name"`
-	RoomId int							`json:"room_id"`
+	RoomId int							`json:"id"`
 	Congestion float64       			`json:"congestion"`
 }
