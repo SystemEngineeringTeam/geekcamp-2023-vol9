@@ -9,17 +9,17 @@ import (
 // Building is a struct that represent the building table in the database
 type Building struct {
 	gorm.Model
-	Name string			`json:"name"`
+	Name string			`json:"building"`
 	Floors []Floor 		`gorm:"foreignkey:BuildingId"`
 }
 
 type GetStayCountBuildingModel struct {
-	Name string								`json:"name"`
+	Name string								`json:"building"`
 	Floors []GetStayCountFloorModel 		`json:"floors"`
 }
 
 type GetCongestionBuildingModel struct {
-	Name string								`json:"name"`
+	Name string								`json:"building"`
 	Floors []GetCongestionFloorModel 		`json:"floors"`
 }
 

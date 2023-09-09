@@ -10,16 +10,17 @@ type Room struct {
 	Name string     		`json:"name"`
 	FloorId int				`json:"floor_id"`
 	StayCounts []StayCount 	`gorm:"foreignkey:RoomId"`
+	// History []History 		`gorm:"foreignkey:RoomId"`
 }
 
 type GetStayCountRoomModel struct {
 	Name string     				`json:"name"`
-	RoomId int						`json:"room_id"`
-	StayCount int         			`json:"headcount"`
+	RoomId int						`json:"id"`
+	StayCount int         			`json:"staycount"`
 }
 
 type GetCongestionRoomModel struct {
 	Name string     					`json:"name"`
-	RoomId int							`json:"room_id"`
+	RoomId int							`json:"id"`
 	Congestion float64       			`json:"congestion"`
 }

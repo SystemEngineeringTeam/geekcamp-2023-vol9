@@ -10,7 +10,7 @@ import (
 
 func BuildingDefaultInsert(){
 	building := []Building{
-		Building{
+		{
 			Name: "4号館別館",
 			Floors: []Floor{
 				{
@@ -71,7 +71,7 @@ func BuildingDefaultInsert(){
 				},
 			},	
 		},	
-		Building{
+		{
 			Name: "4号館",	
 			Floors: []Floor{
 				{
@@ -132,7 +132,7 @@ func BuildingDefaultInsert(){
 				},
 			},
 		},
-		Building{
+		{
 			Name: "1号館",
 			Floors: []Floor{
 				{

@@ -56,6 +56,7 @@ func Init(){
 	v1 := router.Group("/api/v1/")
     v1.GET("/staycount/get/", controller.StayCountGet )
     v1.GET("/congestion/get/", controller.GetCongestionDegree )
+    v1.GET("/staycount/history/", controller.StayCountHistoriesGet )
     v1.POST("/staycount/post/:room_id", controller.StayCountPost )
 
     // 下記を追記することで`http://localhost:8080/api/v1/swagger/index.html`を叩くことでswagger uiを開くことができる
