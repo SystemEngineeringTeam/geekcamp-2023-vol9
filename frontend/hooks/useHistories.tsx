@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import _ from "lodash";
 import { faker } from "@faker-js/faker";
 import { Number24 } from "@/types";
+import { fetchStaycountHistory } from "@/components/api/api";
 
 export function useHistories() {
   const [histories, setHistories] = useRecoilState(historyState);
@@ -26,7 +27,8 @@ export function useHistories() {
   useEffect(() => {
     return () => {
       async () => {
-        const res = historiesResponse;
+        const res = await fetchStaycountHistory();
+        if (res === null) return;
         setHistories(res.histories);
       };
     };

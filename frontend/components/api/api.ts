@@ -1,4 +1,4 @@
-import { CongestionsResponse, StaycountsResponse } from "@/types";
+import { CongestionsResponse, HistoriesResponse, StaycountsResponse } from "@/types";
 import axios from "axios";
 
 const BASE_URL = "https://campuscrowdmonitor-api.sysken.net";
@@ -31,6 +31,6 @@ export const fetchCongestion =
 
 // 今日の滞在者数の履歴を取得する
 export const fetchStaycountHistory =
-  async (): Promise<StaycountsResponse | null> => {
-    return commonGetFetch<StaycountsResponse>("/api/v1/staycount/history/");
+  async (): Promise<HistoriesResponse | null> => {
+    return commonGetFetch<HistoriesResponse>("/api/v1/staycount/histories/");
   };
