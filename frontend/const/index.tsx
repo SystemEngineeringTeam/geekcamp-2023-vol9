@@ -2,6 +2,16 @@ import { HistoriesResponse, StaycountsResponse } from "@/types";
 
 export const labels = Array.from({ length: 24 }, (_, index) => `${index}時`);
 
+class ID {
+  private index: number = 0;
+
+  public next(): number {
+    return this.index++;
+  }
+}
+
+const id = new ID();
+
 export const staycountsResponse: StaycountsResponse = {
   staycounts: [
     {
@@ -9,45 +19,47 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 2,
-          rooms: [
-            { id: 100, name: "202", staycount: 13 },
-            { id: 101, name: "201", staycount: 10 },
-          ],
+          rooms: [{ id: id.next(), name: "アメリカフェ", staycount: 3 }],
         },
         {
           floor: 1,
-          rooms: [
-            { id: 102, name: "アメリカフェ", staycount: 13 },
-            { id: 103, name: "102", staycount: null },
-            { id: 104, name: "101", staycount: 10 },
-          ],
+          rooms: [{ id: id.next(), name: "キャリアセンター", staycount: 0 }],
         },
         {
           floor: 3,
           rooms: [
-            { id: 105, name: "301", staycount: 10 },
-            { id: 106, name: "302", staycount: 13 },
+            { id: id.next(), name: "301", staycount: 5 },
+            { id: id.next(), name: "302", staycount: 2 },
           ],
         },
         {
           floor: 4,
           rooms: [
-            { id: 107, name: "401", staycount: 10 },
-            { id: 108, name: "402", staycount: 13 },
+            { id: id.next(), name: "401", staycount: 0 },
+            { id: id.next(), name: "402", staycount: 0 },
           ],
         },
         {
           floor: 5,
           rooms: [
-            { id: 109, name: "501", staycount: 10 },
-            { id: 110, name: "502", staycount: 13 },
+            { id: id.next(), name: "501", staycount: 0 },
+            { id: id.next(), name: "502", staycount: 0 },
           ],
         },
         {
           floor: 6,
           rooms: [
-            { id: 111, name: "601", staycount: 10 },
-            { id: 112, name: "602", staycount: 13 },
+            { id: id.next(), name: "601", staycount: 0 },
+            { id: id.next(), name: "602", staycount: 0 },
+          ],
+        },
+        {
+          floor: 7,
+          rooms: [
+            { id: id.next(), name: "701", staycount: 0 },
+            { id: id.next(), name: "702", staycount: 0 },
+            { id: id.next(), name: "鳥居教授", staycount: 0 },
+            { id: id.next(), name: "鳥居研", staycount: 0 },
           ],
         },
       ],
@@ -57,44 +69,60 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 1,
-          rooms: [
-            { id: 1001, name: "101", staycount: 10 },
-            { id: 1002, name: "102", staycount: 13 },
-          ],
+          rooms: [],
         },
         {
           floor: 2,
           rooms: [
-            { id: 1003, name: "201", staycount: 10 },
-            { id: 1004, name: "202", staycount: 13 },
+            { id: id.next(), name: "G2201", staycount: 0 },
+            { id: id.next(), name: "G2202", staycount: 0 },
+            { id: id.next(), name: "G2203", staycount: 0 },
+            { id: id.next(), name: "G2204", staycount: 0 },
           ],
         },
         {
           floor: 3,
           rooms: [
-            { id: 1005, name: "301", staycount: 10 },
-            { id: 1006, name: "302", staycount: 13 },
+            { id: id.next(), name: "G2305", staycount: 0 },
+            { id: id.next(), name: "G2306", staycount: 0 },
+            { id: id.next(), name: "G2307", staycount: 0 },
+            { id: id.next(), name: "G2308", staycount: 0 },
           ],
         },
         {
           floor: 4,
           rooms: [
-            { id: 1007, name: "401", staycount: 10 },
-            { id: 1008, name: "402", staycount: 13 },
+            { id: id.next(), name: "G2409", staycount: 0 },
+            { id: id.next(), name: "G2410", staycount: 0 },
+            { id: id.next(), name: "G2411", staycount: 0 },
+            { id: id.next(), name: "G2412", staycount: 0 },
           ],
         },
         {
           floor: 5,
           rooms: [
-            { id: 1009, name: "501", staycount: 10 },
-            { id: 1010, name: "502", staycount: 13 },
+            { id: id.next(), name: "G2513", staycount: 0 },
+            { id: id.next(), name: "G2514", staycount: 0 },
+            { id: id.next(), name: "G2515", staycount: 0 },
+            { id: id.next(), name: "G2516", staycount: 0 },
           ],
         },
         {
           floor: 6,
           rooms: [
-            { id: 1011, name: "601", staycount: 10 },
-            { id: 1012, name: "602", staycount: 13 },
+            { id: id.next(), name: "G2617", staycount: 0 },
+            { id: id.next(), name: "G2618", staycount: 0 },
+            { id: id.next(), name: "G2619", staycount: 0 },
+            { id: id.next(), name: "G2620", staycount: 0 },
+          ],
+        },
+        {
+          floor: 7,
+          rooms: [
+            { id: id.next(), name: "G2621", staycount: 0 },
+            { id: id.next(), name: "G2622", staycount: 0 },
+            { id: id.next(), name: "G2623", staycount: 0 },
+            { id: id.next(), name: "G2624", staycount: 0 },
           ],
         },
       ],
@@ -105,21 +133,43 @@ export const staycountsResponse: StaycountsResponse = {
         {
           floor: 1,
           rooms: [
-            { id: 401, name: "401", staycount: 10 },
-            { id: 402, name: "玉森研", staycount: 13 },
+            { id: id.next(), name: "内種教授", staycount: 0 },
+            { id: id.next(), name: "内種研", staycount: 1 },
+            { id: id.next(), name: "玉森准教授", staycount: 0 },
+            { id: id.next(), name: "玉森研", staycount: 3 },
           ],
         },
         {
           floor: 2,
-          rooms: [{ id: 403, name: "402", staycount: 10 }],
+          rooms: [
+            { id: id.next(), name: "小野木教授", staycount: 0 },
+            { id: id.next(), name: "小野木研", staycount: 0 },
+            { id: id.next(), name: "小栗講師", staycount: 0 },
+            { id: id.next(), name: "塚田教授", staycount: 0 },
+            { id: id.next(), name: "塚田研", staycount: 0 },
+            { id: id.next(), name: "森本教授", staycount: 0 },
+            { id: id.next(), name: "森本研", staycount: 0 },
+          ],
         },
         {
           floor: 3,
-          rooms: [{ id: 405, name: "403", staycount: 10 }],
+          rooms: [
+            { id: id.next(), name: "伊藤雅教授", staycount: 0 },
+            { id: id.next(), name: "伊藤雅研", staycount: 0 },
+            { id: id.next(), name: "中村教授", staycount: 0 },
+            { id: id.next(), name: "中村研", staycount: 1 },
+            { id: id.next(), name: "菱田教授", staycount: 0 },
+            { id: id.next(), name: "菱田研", staycount: 0 },
+          ],
         },
         {
           floor: 4,
-          rooms: [{ id: 407, name: "404", staycount: 10 }],
+          rooms: [
+            { id: id.next(), name: "401", staycount: 0 },
+            { id: id.next(), name: "402", staycount: 0 },
+            { id: id.next(), name: "403", staycount: 0 },
+            { id: id.next(), name: "404", staycount: 0 },
+          ],
         },
       ],
     },
@@ -128,22 +178,41 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 1,
-          rooms: [{ id: 410, name: "梶研", staycount: 13 }],
+          rooms: [
+            { id: id.next(), name: "事務室", staycount: 0 },
+            { id: id.next(), name: "梶准教授", staycount: 0 },
+            { id: id.next(), name: "梶研", staycount: 5 },
+          ],
         },
         {
           floor: 2,
-          rooms: [{ id: 411, name: "暢浩研", staycount: 10 }],
+          rooms: [
+            { id: id.next(), name: "伊藤暢浩教授", staycount: 0 },
+            { id: id.next(), name: "伊藤暢浩研", staycount: 3 },
+            { id: id.next(), name: "河辺教授", staycount: 0 },
+            { id: id.next(), name: "河辺研", staycount: 0 },
+          ],
         },
         {
           floor: 3,
           rooms: [
-            { id: 412, name: "内藤研", staycount: 10 },
-            { id: 412, name: "シス研", staycount: 10 },
+            { id: id.next(), name: "内藤教授", staycount: 0 },
+            { id: id.next(), name: "内藤研", staycount: 0 },
+            { id: id.next(), name: "松河教授", staycount: 0 },
+            { id: id.next(), name: "松河研", staycount: 0 },
+            { id: id.next(), name: "シス研", staycount: 6 },
           ],
         },
         {
           floor: 4,
-          rooms: [{ id: 413, name: "慎士研", staycount: 10 }],
+          rooms: [
+            { id: id.next(), name: "澤野准教授", staycount: 0 },
+            { id: id.next(), name: "澤野研", staycount: 0 },
+            { id: id.next(), name: "水野教授", staycount: 0 },
+            { id: id.next(), name: "水野研", staycount: 0 },
+            { id: id.next(), name: "山本教授", staycount: 0 },
+            { id: id.next(), name: "山本研", staycount: 0 },
+          ],
         },
       ],
     },
@@ -152,80 +221,44 @@ export const staycountsResponse: StaycountsResponse = {
 
 export const historiesResponse: HistoriesResponse = {
   histories: {
-    "4": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "3": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "100": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "2": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "0": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 0, 3, 3, 4, 0, 0, 0, 0, 0, 0, 0,
     ],
     "1": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "5": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "2": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 0, 3, 4, 4, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "6": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "7": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "8": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "9": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "10": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "11": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "12": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "3": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 3, 2, 2, 0, 0, 0, 0, 0, 0, 0,
     ],
     "13": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "14": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "39": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "15": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "41": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "16": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "44": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "17": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "52": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "18": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "61": [
+      2, 4, 4, 2, 2, 2, 2, 3, 4, 4, 4, 3, 4, 8, 8, 8, 5, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "19": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "63": [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3, 3, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "20": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "70": [
+      3, 0, 0, 3, 3, 3, 3, 3, 5, 5, 5, 3, 6, 6, 6, 6, 5, 0, 0, 0, 0, 0, 0, 0,
     ],
-    "21": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "22": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "23": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-    "24": [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    "71": [
+      0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
   },
 };
