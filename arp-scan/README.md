@@ -9,7 +9,7 @@ https://github.com/google/gopacket/blob/master/examples/arpscan/arpscan.go
 1. network.csvに部屋番号、ネットワークアドレス、ネットワークマスクをそれぞれ記入
 1. OS側で、`/etc/systemd/system/arpscan.timer`,`/etc/systemd/system/arpscan.service`に以下のように記述する
 
-```arpscan.timer
+```timer
 [Unit]
 Description=ArpScan Timer
 
@@ -21,7 +21,7 @@ Unit=arpscan.service
 WantedBy=timers.target
 ```
 
-```arpscan.service
+```service
 [Unit]
 Description=ArpScan Service
 
@@ -33,16 +33,18 @@ ExecStart=go run main.go
 ```
 
 6. systemdデーモンの再度読み込み
-```sudo systemctl deamon-reload```
-
-1. タイマーを有効にして開始
+```bash
+sudo systemctl deamon-reload
 ```
+
+7. タイマーを有効にして開始
+```bash
 sudo systemctl enable arpscan.timer
 ```
 ```
 sudo systemctl start arpscan.timer
-```
+```bash
 8. タイマーが実行されていることを確認
-```
+```bash
 systemctl list-timers
 ```
