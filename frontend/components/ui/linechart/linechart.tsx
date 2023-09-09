@@ -104,6 +104,18 @@ export default function Linechart({ roomId }: { roomId: string }) {
     }
   }, [date]);
 
+  useDidUpdate(() => {
+    setData({
+      labels,
+      datasets: [
+        {
+          data: histories[roomId],
+          backgroundColor: "rgb(252, 109, 105)",
+        },
+      ],
+    })
+  }, [histories]);
+
   return (
     <div className={styles.linechart}>
       <h2 className={styles.title}>
