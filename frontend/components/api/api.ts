@@ -8,7 +8,7 @@ export const commonGetFetch = async <T>(path: string): Promise<T | null> => {
   const url = new URL(path, BASE_URL).href;
 
   return axios
-    .get(url)
+    .get(path)
     .then((res) => {
       return res.data as T;
     })
