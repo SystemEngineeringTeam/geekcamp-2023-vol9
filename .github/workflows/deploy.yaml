@@ -3,7 +3,7 @@ name: deploy to Vercel
 on:
   push:
     branches:
-      - deploy
+      - main
     paths:
       - "frontend/**"
       - ".github/**"
