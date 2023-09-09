@@ -41,9 +41,9 @@ sudo systemctl deamon-reload
 ```bash
 sudo systemctl enable arpscan.timer
 ```
-```
-sudo systemctl start arpscan.timer
 ```bash
+sudo systemctl start arpscan.timer
+```
 8. タイマーが実行されていることを確認
 ```bash
 systemctl list-timers
