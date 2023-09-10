@@ -4,7 +4,7 @@
   padding: 0 100vw 10px 100px;
   display: flex;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   background-color: var(--on-primary);
   background-image: linear-gradient(
     0deg,
