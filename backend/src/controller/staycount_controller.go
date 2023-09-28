@@ -3,6 +3,7 @@ package controller
 import (
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/SystemEngineeringTeam/geekcamp-2023-vol9/model"
 	"github.com/gin-gonic/gin"
@@ -46,6 +47,9 @@ func StayCountPost(c *gin.Context) {
 		})
 		return
 	}
+
+	// 日本時間に変換
+	req.DateTime = req.DateTime.In(time.FixedZone("Asia/Tokyo", 9*60*60)).Add(-9 * time.Hour)
 
 	println(roomId)
 

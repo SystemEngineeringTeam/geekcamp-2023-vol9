@@ -20,5 +20,5 @@ type GetStayCountHistoryRequestModel struct {
 }
 
 type GetStayCountHistoryModel struct {
-	StayCount [24]int	`json:"0"`
+	StayCount [24]int `json:"0"`
 }
