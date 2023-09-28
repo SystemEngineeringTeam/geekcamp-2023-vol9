@@ -17,7 +17,7 @@ func BuildingDefaultInsert(){
 					Floor: 1,
 					Rooms: []Room{
 						{
-							Name: "4号館別館1F",
+							Name: "1F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -31,7 +31,7 @@ func BuildingDefaultInsert(){
 					Floor: 2,
 					Rooms: []Room{
 						{
-							Name: "4号館別館2F",
+							Name: "2F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -45,7 +45,7 @@ func BuildingDefaultInsert(){
 					Floor: 3,
 					Rooms: []Room{
 						{
-							Name: "4号館別館3F",
+							Name: "3F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -59,7 +59,7 @@ func BuildingDefaultInsert(){
 					Floor: 4,
 					Rooms: []Room{
 						{
-							Name: "4号館別館4F",
+							Name: "4F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -78,7 +78,7 @@ func BuildingDefaultInsert(){
 					Floor: 1,
 					Rooms: []Room{
 						{
-							Name: "4号館1F",
+							Name: "1F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -92,7 +92,7 @@ func BuildingDefaultInsert(){
 					Floor: 2,
 					Rooms: []Room{
 						{
-							Name: "4号館2F",
+							Name: "2F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -106,7 +106,7 @@ func BuildingDefaultInsert(){
 					Floor: 3,
 					Rooms: []Room{
 						{
-							Name: "4号館3F",
+							Name: "3F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -120,7 +120,7 @@ func BuildingDefaultInsert(){
 					Floor: 4,
 					Rooms: []Room{
 						{
-							Name: "4号館4F",
+							Name: "4F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -139,7 +139,7 @@ func BuildingDefaultInsert(){
 					Floor: 1,
 					Rooms: []Room{
 						{
-							Name: "1号館1F",
+							Name: "1F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -153,7 +153,7 @@ func BuildingDefaultInsert(){
 					Floor: 2,
 					Rooms: []Room{
 						{
-							Name: "1号館2F",
+							Name: "2F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -167,7 +167,7 @@ func BuildingDefaultInsert(){
 					Floor: 3,
 					Rooms: []Room{
 						{
-							Name: "1号館3F",
+							Name: "3F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -181,7 +181,7 @@ func BuildingDefaultInsert(){
 					Floor: 4,
 					Rooms: []Room{
 						{
-							Name: "1号館4F",
+							Name: "4F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -195,7 +195,7 @@ func BuildingDefaultInsert(){
 					Floor: 5,
 					Rooms: []Room{
 						{
-							Name: "1号館5F-501",
+							Name: "501",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -204,7 +204,7 @@ func BuildingDefaultInsert(){
 							},
 						},
 						{
-							Name: "1号館5F-502",
+							Name: "502",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -218,7 +218,7 @@ func BuildingDefaultInsert(){
 					Floor: 6,
 					Rooms: []Room{
 						{
-							Name: "1号館6F",
+							Name: "6F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -232,7 +232,7 @@ func BuildingDefaultInsert(){
 					Floor: 7,
 					Rooms: []Room{
 						{
-							Name: "1号館7F",
+							Name: "7F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -251,7 +251,7 @@ func BuildingDefaultInsert(){
 					Floor: 1,
 					Rooms: []Room{
 						{
-							Name: "10号館1F",
+							Name: "1F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -260,7 +260,7 @@ func BuildingDefaultInsert(){
 							},
 						},
 						{
-							Name: "10号館1F-G2110",
+							Name: "G2110",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -274,7 +274,7 @@ func BuildingDefaultInsert(){
 					Floor: 2,
 					Rooms: []Room{
 						{
-							Name: "10号館2F",
+							Name: "2F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -283,7 +283,7 @@ func BuildingDefaultInsert(){
 							},
 						},
 						{
-							Name: "10号館2F-G2210",
+							Name: "G2210",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -297,7 +297,7 @@ func BuildingDefaultInsert(){
 					Floor: 3,
 					Rooms: []Room{
 						{
-							Name: "10号館3F",
+							Name: "3F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -311,7 +311,7 @@ func BuildingDefaultInsert(){
 					Floor: 4,
 					Rooms: []Room{
 						{
-							Name: "10号館4F",
+							Name: "4F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -325,7 +325,7 @@ func BuildingDefaultInsert(){
 					Floor: 5,
 					Rooms: []Room{
 						{
-							Name: "10号館5F",
+							Name: "5F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -339,7 +339,7 @@ func BuildingDefaultInsert(){
 					Floor: 6,
 					Rooms: []Room{
 						{
-							Name: "10号館6F",
+							Name: "6F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -353,7 +353,7 @@ func BuildingDefaultInsert(){
 					Floor: 7,
 					Rooms: []Room{
 						{
-							Name: "10号館7F",
+							Name: "7F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -410,7 +410,7 @@ func BuildingDefaultInsert(){
 					Floor: 1,
 					Rooms: []Room{
 						{
-							Name: "愛和会館1F",
+							Name: "1F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
@@ -424,7 +424,7 @@ func BuildingDefaultInsert(){
 					Floor: 2,
 					Rooms: []Room{
 						{
-							Name: "愛和会館2F",
+							Name: "2F",
 							StayCounts: []StayCount{
 								{
 									StayCount: 0,
