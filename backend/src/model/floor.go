@@ -14,10 +14,10 @@ type Floor struct {
 
 type GetStayCountFloorModel struct {
 	Floor int							`json:"floor"`
-	Rooms []GetStayCountRoomModel 		`json:"rooms" `
+	Rooms []GetStayCountRoomModel 		`json:"areas" `
 }
 
 type GetCongestionFloorModel struct {
 	Floor int							`json:"floor"`
-	Rooms []GetCongestionRoomModel 		`json:"rooms" `
+	Rooms []GetCongestionRoomModel 		`json:"areas" `
 }

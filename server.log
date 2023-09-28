@@ -7,12 +7,11 @@
 [GIN-debug] GET    /api/v1/staycount/get/    --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountGet (4 handlers)
 [GIN-debug] GET    /api/v1/congestion/get/   --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (4 handlers)
 [GIN-debug] GET    /api/v1/staycount/history/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGet (4 handlers)
-[GIN-debug] GET    /api/v1/staycount/history/:room_id/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGetByRoomIdAndDate (4 handlers)
 [GIN-debug] POST   /api/v1/staycount/post/:room_id --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountPost (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/29 - 08:32:39 | 200 |    7.400333ms |       127.0.0.1 | GET      "/api/v1/staycount/history/4/?date=2023-09-28"
-[GIN] 2023/09/29 - 08:32:54 | 200 |   11.479708ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
-[GIN] 2023/09/29 - 08:33:04 | 200 |    4.881208ms |       127.0.0.1 | GET      "/api/v1/staycount/history/1/?date=2023-09-29"
+[GIN] 2023/09/28 - 10:53:30 | 200 |   17.703375ms |       127.0.0.1 | GET      "/api/v1/staycount/get/"
+[GIN] 2023/09/28 - 12:38:20 | 200 |   31.097375ms |       127.0.0.1 | GET      "/api/v1/staycount/get/"
+[GIN] 2023/09/28 - 13:43:27 | 200 |   29.216125ms |       127.0.0.1 | GET      "/api/v1/staycount/get/"

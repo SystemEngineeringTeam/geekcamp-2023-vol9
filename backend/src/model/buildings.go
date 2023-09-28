@@ -9,19 +9,20 @@ import (
 // Building is a struct that represent the building table in the database
 type Building struct {
 	gorm.Model
-	Name string			`json:"building"`
-	Floors []Floor 		`gorm:"foreignkey:BuildingId"`
+	Name   string  `json:"building"`
+	Floors []Floor `gorm:"foreignkey:BuildingId"`
 }
 
 type GetStayCountBuildingModel struct {
-	Name string								`json:"building"`
-	Floors []GetStayCountFloorModel 		`json:"floors"`
+	Name   string                   `json:"building"`
+	Floors []GetStayCountFloorModel `json:"floors"`
 }
 
 type GetCongestionBuildingModel struct {
-	Name string								`json:"building"`
-	Floors []GetCongestionFloorModel 		`json:"floors"`
+	Name   string                    `json:"building"`
+	Floors []GetCongestionFloorModel `json:"floors"`
 }
+
 
 func GetStayCount() []GetStayCountBuildingModel {
 
@@ -45,38 +46,38 @@ func GetStayCount() []GetStayCountBuildingModel {
 	for _, building := range building {
 		reqFloars := []GetStayCountFloorModel{}
 		for _, floor := range building.Floors {
-	
+
 			reqRooms := []GetStayCountRoomModel{}
 			for _, room := range floor.Rooms {
 				reqRooms = append(reqRooms, GetStayCountRoomModel{
-					Name: room.Name,
-					RoomId: int(room.ID),
+					Name:      room.Name,
+					RoomId:    int(room.ID),
 					StayCount: room.StayCounts[len(room.StayCounts)-1].StayCount,
 				})
 			}
-	
+
 			reqFloars = append(reqFloars, GetStayCountFloorModel{
 				Floor: floor.Floor,
 				Rooms: reqRooms,
 			})
 		}
-	
+
 		req = append(req, GetStayCountBuildingModel{
-			Name: building.Name,
+			Name:   building.Name,
 			Floors: reqFloars,
 		})
 	}
 
 	return req
-	
+
 }
 
-func GetCongestionDegree() []GetCongestionBuildingModel{
+func GetCongestionDegree() []GetCongestionBuildingModel {
 	// 建物の取得
 	building := []Building{}
 	req := []GetCongestionBuildingModel{}
 	db.Find(&building)
-	
+
 	for _, building := range building {
 
 		// 建物に紐づく階の取得
@@ -84,7 +85,7 @@ func GetCongestionDegree() []GetCongestionBuildingModel{
 		reqFloars := []GetCongestionFloorModel{}
 		db.Where("building_id = ?", building.ID).Find(&floors)
 
-		for _ , floor := range floors {
+		for _, floor := range floors {
 
 			// 階に紐づく部屋の取得
 			rooms := []Room{}
@@ -103,7 +104,7 @@ func GetCongestionDegree() []GetCongestionBuildingModel{
 				congestion := 0.0
 				if maxStayCount.StayCount == 0 {
 					congestion = 0
-				}else{
+				} else {
 					congestion = float64(stayCount[0].StayCount) / float64(maxStayCount.StayCount) * 100
 					rooms[roomIndex].StayCounts = stayCount
 				}
@@ -113,8 +114,8 @@ func GetCongestionDegree() []GetCongestionBuildingModel{
 
 				// reqに詰め替える
 				reqRooms = append(reqRooms, GetCongestionRoomModel{
-					Name: room.Name,
-					RoomId: int(room.ID),
+					Name:       room.Name,
+					RoomId:     int(room.ID),
 					Congestion: congestion,
 				})
 			}
@@ -125,9 +126,8 @@ func GetCongestionDegree() []GetCongestionBuildingModel{
 		}
 
 		req = append(req, GetCongestionBuildingModel{
-			Name: building.Name,
+			Name:   building.Name,
 			Floors: reqFloars,
-
 		})
 	}
 
