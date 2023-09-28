@@ -5,6 +5,8 @@ import (
 	// "strconv"
 
 	"net/http"
+	"strconv"
+	"time"
 
 	"github.com/SystemEngineeringTeam/geekcamp-2023-vol9/model"
 	"github.com/gin-gonic/gin"
@@ -21,14 +23,39 @@ func StayCountHistoriesGet(c *gin.Context) {
 
 	histories := model.GetStayCountHistory()
 
-	// RoomIDをキーとしてマップに変換
-	// historyMap := make(map[int][24]int)
-	// for _, history := range histories {
-	// 	historyMap[history.RoomId] = history.StayCount
-	// }
-
 	// レスポンスとしてJSONを返す
 	c.JSON(http.StatusOK, gin.H{
 		"histories": histories,
+	})
+}
+
+// @Summary 滞在者数の履歴を取得する。部屋指定かつ日付指定
+// @Description 滞在者数の履歴を取得する。これは24時間分のデータを取得する。
+// @Tag StayCount
+// @Produce  json
+// @Success 200 {object} model.GetStayCountHistoryModel
+// @Router /api/v1/staycount/history/{room_id}/?date={date} [get]
+func StayCountHistoriesGetByRoomIdAndDate(c *gin.Context) {
+
+	roomId := c.Param("room_id")
+	date := c.Query("date")
+
+	// Time.timeに変換
+	date_time, err := time.Parse("2006-01-02", date)
+	if err != nil {
+		panic(err)
+	}
+
+	//roomIdをint型に変換
+	roomIdInt, err := strconv.Atoi(roomId)
+	if err != nil {
+		panic(err)
+	}
+
+	history := model.GetStayCountHistoryByRoomIdAndDate(date_time, roomIdInt)
+
+	// レスポンスとしてJSONを返す
+	c.JSON(http.StatusOK, gin.H{
+		"histories": history,
 	})
 }
