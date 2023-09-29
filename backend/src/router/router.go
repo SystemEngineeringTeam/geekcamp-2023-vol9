@@ -27,8 +27,8 @@ func Init(){
     router.Use(cors.New(cors.Config{
         // アクセスを許可したいアクセス元
         AllowOrigins: []string{
-            "https://campus-crowd-monitor.vercel.app/",
-            "https://campuscrowdmonitor.vercel.app/",
+            "https://campus-crowd-monitor.vercel.app",
+            "https://campuscrowdmonitor.vercel.app",
             "http://localhost:3000",
         },
         // アクセスを許可したいHTTPメソッド(以下の例だとPUTやDELETEはアクセスできません)
@@ -41,7 +41,6 @@ func Init(){
         AllowHeaders: []string{
             "Access-Control-Allow-Credentials",
             "Access-Control-Allow-Headers",
-            "Access-Control-Allow-Origin",
             "Content-Type",
             "Content-Length",
             "Accept-Encoding",
