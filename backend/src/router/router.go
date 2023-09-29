@@ -57,7 +57,7 @@ func Init(){
 	v1 := router.Group("/api/v1/")
     v1.GET("/staycount/get/", controller.StayCountGet )
     v1.GET("/congestion/get/", controller.GetCongestionDegree )
-    v1.GET("/staycount/history/", controller.StayCountHistoriesGet )
+    v1.GET("/staycount/histories/", controller.StayCountHistoriesGet )
     v1.GET("/staycount/history/:room_id/", controller.StayCountHistoriesGetByRoomIdAndDate )
     v1.POST("/staycount/post/:room_id", controller.StayCountPost )
 

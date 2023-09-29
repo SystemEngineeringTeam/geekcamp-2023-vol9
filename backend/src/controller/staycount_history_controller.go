@@ -17,7 +17,7 @@ import (
 // @Tag StayCount
 // @Produce  json
 // @Success 200 {object} model.GetStayCountHistoryRequestModel
-// @Router /api/v1/staycount/history/ [get]
+// @Router /api/v1/staycount/histories/ [get]
 func StayCountHistoriesGet(c *gin.Context) {
 	// TODO: しっかりとMySQLからデータを取得する
 

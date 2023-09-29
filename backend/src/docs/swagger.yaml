@@ -116,7 +116,7 @@ paths:
           schema:
             $ref: '#/definitions/model.GetStayCountResponseModel'
       summary: 滞在者数を取得する
-  /api/v1/staycount/history/:
+  /api/v1/staycount/histories/:
     get:
       description: 滞在者数の履歴を取得する。これは24時間分のデータを取得する。
       produces:
