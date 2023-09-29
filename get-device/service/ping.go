@@ -26,6 +26,12 @@ func Ping(ip string, m int) int {
 
 	out := ips(addr)
 
+	c, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
+	if err != nil {
+		panic(err)
+	}
+	defer c.Close()
+
 	for _, v := range out {
 
 		opt := Option{
@@ -36,11 +42,11 @@ func Ping(ip string, m int) int {
 			panic(err)
 		}
 
-		c, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
-		if err != nil {
-			panic(err)
-		}
-		defer c.Close()
+		// c, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
+		// if err != nil {
+		// 	panic(err)
+		// }
+		// defer c.Close()
 
 		go try(c, ip.IP)
 	}
