@@ -10,12 +10,12 @@ definitions:
     type: object
   model.GetCongestionFloorModel:
     properties:
-      floor:
-        type: integer
-      rooms:
+      areas:
         items:
           $ref: '#/definitions/model.GetCongestionRoomModel'
         type: array
+      floor:
+        type: integer
     type: object
   model.GetCongestionResponseModel:
     properties:
@@ -44,12 +44,12 @@ definitions:
     type: object
   model.GetStayCountFloorModel:
     properties:
-      floor:
-        type: integer
-      rooms:
+      areas:
         items:
           $ref: '#/definitions/model.GetStayCountRoomModel'
         type: array
+      floor:
+        type: integer
     type: object
   model.GetStayCountHistoryModel:
     properties:
@@ -127,6 +127,23 @@ paths:
           schema:
             $ref: '#/definitions/model.GetStayCountHistoryRequestModel'
       summary: 滞在者数の履歴を取得する（今日だけ）
+  /api/v1/staycount/history/{room_id}:
+    get:
+      description: 滞在者数の履歴を取得する。これは24時間分のデータを取得する。
+      parameters:
+      - description: '日付データを記載する 例: 2021-10-01'
+        in: query
+        name: date
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GetStayCountHistoryModel'
+      summary: 滞在者数の履歴を取得する。部屋指定かつ日付指定
   /api/v1/staycount/post/{building_name}:
     post:
       description: arpscanによって取得したデータを元に滞在者数を登録する
