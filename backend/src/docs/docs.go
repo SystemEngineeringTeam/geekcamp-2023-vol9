@@ -49,7 +49,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/staycount/history/": {
+        "/api/v1/staycount/histories/": {
             "get": {
                 "description": "滞在者数の履歴を取得する。これは24時間分のデータを取得する。",
                 "produces": [
