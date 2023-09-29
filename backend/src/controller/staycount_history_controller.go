@@ -34,7 +34,8 @@ func StayCountHistoriesGet(c *gin.Context) {
 // @Tag StayCount
 // @Produce  json
 // @Success 200 {object} model.GetStayCountHistoryModel
-// @Router /api/v1/staycount/history/{room_id}/?date={date} [get]
+// @Param date query string true "日付データを記載する 例: 2021-10-01"
+// @Router /api/v1/staycount/history/{room_id} [get]
 func StayCountHistoriesGetByRoomIdAndDate(c *gin.Context) {
 
 	roomId := c.Param("room_id")

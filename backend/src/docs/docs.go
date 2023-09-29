@@ -66,6 +66,32 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/v1/staycount/history/{room_id}": {
+            "get": {
+                "description": "滞在者数の履歴を取得する。これは24時間分のデータを取得する。",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "滞在者数の履歴を取得する。部屋指定かつ日付指定",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "日付データを記載する 例: 2021-10-01",
+                        "name": "date",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.GetStayCountHistoryModel"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/staycount/post/{building_name}": {
             "post": {
                 "description": "arpscanによって取得したデータを元に滞在者数を登録する",
@@ -102,14 +128,14 @@ const docTemplate = `{
         "model.GetCongestionFloorModel": {
             "type": "object",
             "properties": {
-                "floor": {
-                    "type": "integer"
-                },
-                "rooms": {
+                "areas": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.GetCongestionRoomModel"
                     }
+                },
+                "floor": {
+                    "type": "integer"
                 }
             }
         },
@@ -155,14 +181,14 @@ const docTemplate = `{
         "model.GetStayCountFloorModel": {
             "type": "object",
             "properties": {
-                "floor": {
-                    "type": "integer"
-                },
-                "rooms": {
+                "areas": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/model.GetStayCountRoomModel"
                     }
+                },
+                "floor": {
+                    "type": "integer"
                 }
             }
         },

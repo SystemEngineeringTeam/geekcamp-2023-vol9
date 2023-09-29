@@ -28,6 +28,7 @@ func Init(){
         // アクセスを許可したいアクセス元
         AllowOrigins: []string{
             "https://campus-crowd-monitor.vercel.app/",
+            "https://campuscrowdmonitor.vercel.app/",
             "http://localhost:3000",
         },
         // アクセスを許可したいHTTPメソッド(以下の例だとPUTやDELETEはアクセスできません)
