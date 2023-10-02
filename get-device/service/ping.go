@@ -80,9 +80,9 @@ func try(c *icmp.PacketConn, ip net.IP) {
 		return
 	}
 
-	c.SetDeadline(time.Now().Add(time.Microsecond * 250))
+	c.SetDeadline(time.Now().Add(time.Second))
 
-	rb := make([]byte, 150)
+	rb := make([]byte, 1500)
 	n, _, _ := c.ReadFrom(rb)
 	if err == nil {
 		rm, err := icmp.ParseMessage(ipv4.ICMPTypeEcho.Protocol(), rb[:n])
