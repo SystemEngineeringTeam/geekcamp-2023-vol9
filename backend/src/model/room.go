@@ -17,6 +17,7 @@ type GetStayCountRoomModel struct {
 	Name string     				`json:"name"`
 	RoomId int						`json:"id"`
 	StayCount int         			`json:"staycount"`
+	MaxStaycount int				`json:"maxStaycount"`
 }
 
 type GetCongestionRoomModel struct {
