@@ -49,10 +49,15 @@ func GetStayCount() []GetStayCountBuildingModel {
 
 			reqRooms := []GetStayCountRoomModel{}
 			for _, room := range floor.Rooms {
+
+				maxStayCount := StayCount{}
+				db.Where("room_id = ?", room.ID).Order("stay_count DESC").First(&maxStayCount)
+
 				reqRooms = append(reqRooms, GetStayCountRoomModel{
 					Name:      room.Name,
 					RoomId:    int(room.ID),
 					StayCount: room.StayCounts[len(room.StayCounts)-1].StayCount,
+					MaxStaycount: maxStayCount.StayCount,
 				})
 			}
 

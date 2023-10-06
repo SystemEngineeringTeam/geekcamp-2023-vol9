@@ -6,18 +6,11 @@
 
 [GIN-debug] GET    /api/v1/staycount/get/    --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountGet (4 handlers)
 [GIN-debug] GET    /api/v1/congestion/get/   --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.GetCongestionDegree (4 handlers)
-[GIN-debug] GET    /api/v1/staycount/history/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGet (4 handlers)
+[GIN-debug] GET    /api/v1/staycount/histories/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGet (4 handlers)
 [GIN-debug] GET    /api/v1/staycount/history/:room_id/ --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountHistoriesGetByRoomIdAndDate (4 handlers)
 [GIN-debug] POST   /api/v1/staycount/post/:room_id --> github.com/SystemEngineeringTeam/geekcamp-2023-vol9/controller.StayCountPost (4 handlers)
 [GIN-debug] GET    /api/v1/swagger/*any      --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-[GIN] 2023/09/29 - 11:27:11 | 200 |     588.125µs |             ::1 | GET      "/api/v1/swagger/index.html"
-[GIN] 2023/09/29 - 11:27:12 | 200 |    8.081625ms |             ::1 | GET      "/api/v1/swagger/swagger-ui.css"
-[GIN] 2023/09/29 - 11:27:12 | 200 |         332µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
-[GIN] 2023/09/29 - 11:27:12 | 200 |   17.786958ms |             ::1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
-[GIN] 2023/09/29 - 11:27:12 | 200 |     357.375µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
-[GIN] 2023/09/29 - 11:27:12 | 200 |         600µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
-[GIN] 2023/09/29 - 11:27:12 | 200 |     447.625µs |             ::1 | GET      "/api/v1/swagger/doc.json"
-[GIN] 2023/09/29 - 11:27:12 | 200 |      53.709µs |             ::1 | GET      "/api/v1/swagger/favicon-32x32.png"
+[GIN] 2023/10/06 - 09:42:47 | 200 |   68.019958ms |       127.0.0.1 | GET      "/api/v1/staycount/get/"
