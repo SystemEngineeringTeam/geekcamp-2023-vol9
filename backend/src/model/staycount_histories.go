@@ -67,7 +67,7 @@ func GetStayCountHistory() map[int][]float64 {
 
 func GetStayCountHistoryByRoomIdAndDate( date time.Time , roomId int )  map[int][]float64{
 	stayCounts := []StayCount{}
-	date = date.In(time.FixedZone("Asia/Tokyo", 9*60*60))
+	date = date.In(time.FixedZone("Asia/Tokyo", 9*60*60)).Add(-9 * time.Hour)
 	db.Where("room_id = ? AND date_time >= ? AND date_time < ?", roomId, date, date.Add(24*time.Hour)).Find(&stayCounts)
 
 
