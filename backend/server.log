@@ -13,6 +13,7 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
+<<<<<<< Updated upstream
 [GIN] 2023/09/29 - 11:27:11 | 200 |     588.125µs |             ::1 | GET      "/api/v1/swagger/index.html"
 [GIN] 2023/09/29 - 11:27:12 | 200 |    8.081625ms |             ::1 | GET      "/api/v1/swagger/swagger-ui.css"
 [GIN] 2023/09/29 - 11:27:12 | 200 |         332µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-standalone-preset.js"
@@ -21,3 +22,12 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2023/09/29 - 11:27:12 | 200 |         600µs |             ::1 | GET      "/api/v1/swagger/swagger-ui-bundle.js"
 [GIN] 2023/09/29 - 11:27:12 | 200 |     447.625µs |             ::1 | GET      "/api/v1/swagger/doc.json"
 [GIN] 2023/09/29 - 11:27:12 | 200 |      53.709µs |             ::1 | GET      "/api/v1/swagger/favicon-32x32.png"
+=======
+[GIN] 2023/10/06 - 09:54:24 | 200 |   18.211667ms |       127.0.0.1 | GET      "/api/v1/staycount/histories/"
+[GIN] 2023/10/06 - 09:54:26 | 200 |    4.132125ms |       127.0.0.1 | GET      "/api/v1/staycount/histories/"
+[GIN] 2023/10/06 - 09:54:28 | 200 |    3.701875ms |       127.0.0.1 | GET      "/api/v1/staycount/history/1/?date=2023-09-29"
+[GIN] 2023/10/06 - 09:54:49 | 200 |   26.442583ms |       127.0.0.1 | POST     "/api/v1/staycount/post/1"
+[GIN] 2023/10/06 - 09:54:52 | 200 |    4.904375ms |       127.0.0.1 | GET      "/api/v1/staycount/history/1/?date=2023-09-29"
+[GIN] 2023/10/06 - 09:55:02 | 200 |    3.902958ms |       127.0.0.1 | GET      "/api/v1/staycount/history/1/?date=2023-10-06"
+[GIN] 2023/10/06 - 09:55:03 | 200 |    6.717875ms |       127.0.0.1 | GET      "/api/v1/staycount/history/1/?date=2023-10-06"
+>>>>>>> Stashed changes
