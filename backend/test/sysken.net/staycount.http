@@ -9,7 +9,12 @@ Content-Type: application/json
 Accept: application/json
 
 ### 滞在者数の履歴を取得
-GET http://campuscrowdmonitor-api.sysken.net/api/v1/staycount/history/ HTTP/1.1
+GET http://campuscrowdmonitor-api.sysken.net/api/v1/staycount/histories/ HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+### 滞在者数の履歴を取得。部屋番号指定・期間指定
+GET https://campuscrowdmonitor-api.sysken.net/api/v1/staycount/history/28/?date=2023-10-06 HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 
